@@ -1,0 +1,17 @@
+
+public class Class15 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+
+
+
+
+// 왕거지게임
+// {"노예" < "시민" < "귀족" < "왕"}
+//노예가 왕을 만나면 왕을 죽이고 게임을 승리
+//자유(배열 사용하는게 편함)
