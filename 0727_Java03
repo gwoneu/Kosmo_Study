@@ -1,0 +1,50 @@
+import java.util.Scanner;
+
+public class Class03 {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+		int a; // 변수 선언
+		double d = 123.123; // 변수 선언과 초기화
+		//a = 12; // 변수 초기화
+		//a = a +100; // 초기화 이전엔 쓰레기(알 수 없는 숫자) 값이 들어가있다.
+		
+		a = scan.nextInt();
+		System.out.println("a : " + a); //콘솔에서 입력가능
+		
+		d = scan.nextDouble();
+		System.out.println("d : " + d);
+		
+		String str;
+		
+		str = scan.next(); // next가 띄어쓰기 기준으로 잘라버림 ex) Hello World 면 Hello만 출력
+		System.out.println("str : " + str);
+		// str = scan.next(); // 한 번 더 하면 남은 문자열 출력
+		// System.out.println("str : " + str);
+		
+		scan.nextLine();
+		str = scan.nextLine(); // 문자열 전체 출력
+		System.out.println("str : " + str);
+		
+		
+		// 실수 2개를 입력받고, 2개의 합을 출력하세요.
+		double c;
+		double e;
+		c = scan.nextDouble();
+		e = scan.nextDouble();
+		
+		System.out.println(c + e);
+		
+		// 철수, 영희가 엄마가 둘 다 시험에서 100점을 맞으면 -> 사용자 2개 입력
+		// 철수 : ?점, 영희 : ?점, 성공 : true or false
+		int f;
+		int g;
+		f = scan.nextInt();
+		g = scan.nextInt();
+		System.out.println("철수 : " + f + "점, 영희 : " + g + "점, 성공 : " + (f >= 100 && g >= 100));
+		
+	}
+}
+
+// 출력 - System.out
+// 입력 - System.in
