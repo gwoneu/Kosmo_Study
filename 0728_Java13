@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Class11 {
+
+	public static void main(String[] args) {
+		String[] str = new String[5];
+		
+		Scanner scan = new Scanner(System.in);
+		for(int i=0; i<5; i++) {
+			str[i] = scan.next(); //배열에 채워넣기
+		}
+		
+		for(int i=0; i<5; i++) {
+			System.out.println(str[i]); //채워놓은 배열 출력
+		}
+		
+		
+		// String 배열 5개짜리 -> 사용자에게 입력을 받아서 입력받은 값이 배열에 들어있는지 없는지 찾아보는 프로그램
+		// str[0].equals(menu) -> true of false <equals 는 == 와 같다>
+		
+		String menu = scan.next(); //변수 1개 만들기
+		
+		for(int i=0; i<5; i++) {
+			if(menu.equals(str[i])) { //string은 변수가 아니여서 비교연산자 사용 불가
+				System.out.println("있습니다.");
+				break;
+			}
+			if(i==4) {
+				System.out.println("없습니다.");
+			}
+		}
+		
+		
+		
+		
+		
+		
+
+	}
+
+}
