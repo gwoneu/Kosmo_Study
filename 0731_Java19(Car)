@@ -1,0 +1,8 @@
+public class Car {
+	String name = "현대";
+	int year = 2023;
+	
+	void SayHello() {
+		System.out.println("제조사 : " + name + ", 연도는 : " + year);
+	}
+}
