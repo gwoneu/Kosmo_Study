@@ -25,17 +25,7 @@ public class Class05 {
 		System.out.println(greeting.compareTo("Aello")); //A가 H보다 7번째 앞에 있다.
 		System.out.println(greeting.compareTo("Hello")); //0이 나오면 같은 문자
 		System.out.println(greeting.compareTo("Hezzo")); //l보다 z가 14번째 뒤에 있다.
-
-		
-		
-		// 2. equalsIgnoreCase를 사용하지 않고, 2개의 문자열을 서로 비교해보자.
-		boolean isEqual = world.toLowerCase().equals(world2.toLowerCase());
-		
-		
-		// 3. indexOf 문자열의 처음, 마지막에 특정 위치를 알 수 있었다. 그러면 해당 문자열에 원하는 문자가 몇 개 들어있는지
-		
-		
-		
+	
 	}
 
 }
