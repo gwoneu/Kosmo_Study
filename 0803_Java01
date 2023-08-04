@@ -1,0 +1,42 @@
+package J0803;
+
+public class Class01 {
+
+	public static void main(String[] args) {
+		int arr[][] = new int [8][8];
+		
+		for(int i=0; i<8; i++) {
+			// 코드(함수로 변경)
+			//for(int j=0; j<8; j++) {
+			//	func1(arr, i);
+			// }
+			func1(arr, i);
+			// func1을 8번 반복 실행
+		}
+	}
+	
+	// func1
+	static void func1(int[][] arr, int i) {
+		for(int j=0; j<8; j++) {
+			arr[i][j] = 8*i+j+1;
+			printArr(arr,i,j);
+		}
+		//System.out.println();
+		newLine();
+	}
+	
+	static void printArr(int[][] arr, int i, int j) {
+		System.out.print(arr[i][j] + " ");
+	}
+	
+	static void newLine() {
+		System.out.println();
+	}
+	
+	
+}
+
+// 함수
+// for(){
+//  긴 코드를 압축해서 쓸 수 있게 해주는 것 -> 함수
+// }
