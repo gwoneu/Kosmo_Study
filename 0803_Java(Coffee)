@@ -1,0 +1,22 @@
+package J0803;
+
+public class Coffee {
+	String name;
+	String coffee;
+	String size;
+	
+	Coffee(String name,String coffee, String size){
+			this.name = name;
+			this.coffee = coffee;
+			this.size = size;
+		}
+	
+		void speak() {
+			System.out.println(name + "고객님!");
+		}
+		
+		void menu() {
+			System.out.println("주문하신 " + coffee + " " + size + " 사이즈 나왔습니다.");
+		}
+	
+}
