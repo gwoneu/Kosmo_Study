@@ -1,0 +1,41 @@
+package J0803;
+
+public class Class06 {
+
+	public static void main(String[] args) {
+	Dog dog = new Dog("푸들",3,"산책");
+	Cat cat = new Cat("나비",2,"점프");
+	Bird bird = new Bird("앵무새",2,true,"랄ㄹㄹ라라");
+	
+	dog.sleep();
+	dog.walk();
+	dog.eat();
+	
+	bird.eat();
+	bird.fly();
+	bird.song();
+	
+	Bird bird2 = new Bird("삐약이", 1, false, "삐약삐약!");
+	
+	bird.songTo(bird2.sings);
+	bird.songToge(bird2.name, bird2.sings);
+	
+	bird.songTogether(bird2.name, bird2.age,bird2.wings, bird2.sings);
+	bird.songWith(bird2); //위의 코드를 간결하게 수정한것.
+	}
+
+}
+
+// 상속 -> 클래스 간의 관계 (상하)
+// 내가 가지고 있는 속성(인스턴스 변수), 행동(메소드)이 다른 클래스에도 이미 있다면?
+// 똑같이 생긴 설계도를 또 만들어야되네?
+// 다른 설계도를 베껴올 수 있으면 좋겠다.
+
+// 부모 클래스(이미 만들어져 있는 설계도)
+// 자식 클래스(베껴서 새로 작성할 설계도)
+
+// 1. 요식업 - (식당,카페) - (나라별 가게)
+// 2. 주사위 게임하는 사람들 - 객체(플레이어)가 생성되면 랜덤한 주사위 값(1~6)을 가지고 있다.
+//    다른 객체와 주사위 값을 가지고 승부한다. 누가 이겼는지 판단을 하고, 게임을 할 떄마다 주사위 값이 바뀌어야 한다.
+// 3. 카드게임 -> 객체화
+//    컴퓨터, 사람을 객체화한다. 컴퓨터 vs 컴퓨터, 컴퓨터 vs 사람, 사람 vs 사람
