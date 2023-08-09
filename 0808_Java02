@@ -1,0 +1,28 @@
+package J0808;
+
+public class Class02 {
+
+	public static void main(String[] args) {
+		Constants cons = new Constants();
+		System.out.println(cons.num);
+		// cons.num = 10; 값 변경 불가능.
+		System.out.println(cons.PI * 5 * 5);
+		System.out.println("우리 어플리케이션 이름 : " + cons.appName);
+		// cons.PI = 3.1415926535897;
+		// cons.appName = "카카오톡2"
+	}
+
+}
+
+
+// 상수(Constants)
+// 변하지 않는 수
+// 한 번 할당되면 더 이상 바꿀 수 없다.
+// final 키워드 사용
+
+// 공장 -> 기계설비 -> 장난감 size
+
+// 정적 + 상수
+// static final
+
+// 한식당 -> nation = "한국" -> static final nation = "한국"
