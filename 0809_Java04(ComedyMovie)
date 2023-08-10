@@ -1,0 +1,12 @@
+package J0809_SFMovie;
+
+public class ComedyMovie extends Movie {
+	private static final String genre = "코미디";
+	ComedyMovie(String title, int duration) {
+		super(title, duration);
+	}
+	
+	static final void displayGenre() {
+		System.out.println("장르 : " + genre);
+	}
+}
