@@ -1,0 +1,24 @@
+package J0814;
+
+public class Counter {
+	private int count;
+	
+	public void increment() {
+		count++;
+	}
+	
+	public void decrement() {
+		count--;
+	}
+	
+	public void printCount() {
+		System.out.println(count);
+		synchronized (this) {
+			count*=2;
+		}
+	}
+	
+	public synchronized int getCount() {
+		return count;
+	}
+}
