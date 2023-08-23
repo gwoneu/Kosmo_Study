@@ -30,7 +30,9 @@ class Pizza(Food):
         self._topping.append(topping)
 
 
-p = Pizza("피자", 100, ["페페로니", "올리브"], "치즈")
-p.addTopping("포테이토")
+p = Pizza("피자", 100, ["페페로니", "올리브"], "치즈") # 리스트 전달
+p.addTopping("포테이토") # 한 개 추가
 
 p.cook()
+
+# 숙제 - topping, addTopping() -> 리스트, 값 여러개, 값 하나
