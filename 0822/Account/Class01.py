@@ -7,18 +7,30 @@ class Account:
     def __init__(self, account_number, balance):
         self._account_number = account_number
         self._balance = balance
+        
+    def deposit(self, amount):
+        if amount < 0:
+            raise ValueError("잘못된 입력입니다.")
+        else:
+            self._balance += amount
+        
+    def withdraw(self, amount):
+        if amount > self._balance and amount < 0:
+            raise ValueError("금액이 부족합니다.")
+        self._balance -= amount
+        
+    def get_balance(self):
+        return self._balance
+    
+    def get_account_number(self):
+        return self._account_number
 
-class AtmAccount:
+class AtmAccount(Account):
     def __init__(self, account_number, balance):
         super().__init__(account_number, balance)
     
-def deposit(self, amount):
-        self.balance += amount
-
-def withdraw(self, amount):
-    if amount > self.balance:
-        raise ValueError("금액이 부족합니다.")
-    self.balance -= amount
-
-def get_balance(self):
-    return self.balance
+    def withdraw(self, amount):
+        if 0 < amount <= self.balance:
+            self.balance -= amount
+            return True
+        return False
