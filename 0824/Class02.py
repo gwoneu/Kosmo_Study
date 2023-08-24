@@ -8,13 +8,7 @@ def menu():
         math = int(input("수학: "))
         science = int(input("과학: "))
         english = int(input("영어: "))
-        user_data(name, math,)
     # elif a == 2:
         
-
-def save_user():
-    with open("data.pickle", "wb") as f:
-        pickle.dump(user_data, f)
-    
 while True:
     menu()
