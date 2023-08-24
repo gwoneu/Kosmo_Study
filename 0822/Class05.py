@@ -11,9 +11,18 @@ class Food(ABC):
         pass
 
 class Pizza(Food):
-    def __init__(self, name, price, topping, crust):
+    def __init__(self, name, price, topping, crust): #"올리브, 페퍼로니"
         super().__init__(name, price)
-        self._topping = topping
+        self._topping = []
+        for i in topping:
+            if type(i) == str:
+                addtopping = i.split(',')
+                for j in addtopping:
+                    self._topping.append(j)
+            elif type(i) == list:
+                for j in i:
+                    self._topping.append(j)
+                    
         self._crust = crust
 
     def cook(self):
