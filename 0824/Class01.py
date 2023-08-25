@@ -5,12 +5,13 @@ with open('alice.txt', 'r') as f:
     contents = f.read()
 
 # 구두점 제거
-punctuations = '''!()-[];:'"\,<>./?@#$%^&*_~'''
+punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
 for punctuation in punctuations:
     contents = contents.replace(punctuation, "")
-    
-contents = contents.replace("\n","")
-    
+
+contents = contents.replace("\n", " ")
+
+print(contents.split())
 print(len(contents.split()))
 
 # result = contents.split()
@@ -18,3 +19,18 @@ print(len(contents.split()))
 
 # print(result)
 # print(word_count)
+
+words = contents.split()
+words = contents.lower().split()
+
+# 각 단어 개수 계산
+words_count = {}
+for word in words:
+    if word in words_count:
+        words_count[word] += 1 #값 1 증가
+    else:
+        words_count[word] = 1 #딕셔너리 새로 추가
+        
+#단어 개수 출력
+for word, count in words_count.items():
+    print(f"{word}:{count}")
