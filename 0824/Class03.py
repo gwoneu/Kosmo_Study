@@ -56,10 +56,10 @@ print(arr2)
 # 배열 형태 변환
 
 # 1차원 배열을 2차원 배열로 변환 - 오류 
-# arr = np.array([1,2,3,4,5])
-# arr2 = np.reshape(arr,(2,3))
+arr = np.array([1,2,3,4,5,6])
+arr2 = np.reshape(arr,(2,3))
 
-# print(arr2)
+print(arr2)
 
 # 2차원 배열을 1차원 배열로 변환
 arr1 = arr2.flatten()
