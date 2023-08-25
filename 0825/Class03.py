@@ -47,3 +47,14 @@ print(city_counts)
 np.random.seed(0)
 df['Gender'] = np.random.choice(['Male','Female'], size = df.shape[0])
 print(df)
+
+data = pd.DataFrame({
+    'City' : ['Seoul', 'Seoul', 'Busan', 'Busan'],
+    'Fruit' : ['Apple', 'Banana', 'Apple', 'Banana'],
+    'Quanitiy' : [10, 15, 7, 12],
+    'Price' : [1000, 2000, 1500, 2500]
+})
+
+group = data.groupby(['City', 'Fruit'])['Quanitiy'].sum()
+
+print(group)
