@@ -31,6 +31,9 @@ def create_scatter_plot(data):
     
     x_coord_list, y_coord_lst, colors = zip(*coord_lst)
     
+    x_tick_labels = ['강남대로','반포대로','신반포로','잠원로']
+    x_tick_position = [ 20000, 40000, 60000, 80000]
+    plt.xticks(x_tick_position, x_tick_labels, rotation = 45)
     plt.scatter(x_coord_list, y_coord_lst, color = colors, alpha = 0.5)
     plt.xlabel('주소')
     plt.ylabel('나이')

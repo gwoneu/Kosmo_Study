@@ -1,0 +1,34 @@
+ 이름                                      널?      유형
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+EMPNO -> NOT NULL -> 기본키
+       -> NUMBER(4) -> 네자리 숫자
+ENAME -> VARCHAR2(10)-> 10개의 문자
+JPB -> VARCHAR2(9) -> 9개 이하
+MGR -> NUMBER(4) -> 네자리 숫자
+HIREDATE -> DATE '2019/20/12', '2023-08-29' 이러한 식의 날짜 형태의 데이터
+SAL -> NUMBER(7,2) -> 7자리 숫자인데, 소수점 2자리까지
+COMM -> NUMBER(7,2)
+DEPTNO -> 2자리 숫자
+
+이름                                      널?      유형
+----------------------------------------- -------- ----------------------------
+DEPTNO                                    NOT NULL NUMBER(2)
+DNAME                                              VARCHAR2(14)
+LOC                                                VARCHAR2(13)
+
+DEPTNO -> NOT NULL _> 기본키
+
+이름                                      널?      유형
+----------------------------------------- -------- ----------------------------
+GRADE                                              NUMBER
+LOSAL                                              NUMBER
+HISAL                                              NUMBER
