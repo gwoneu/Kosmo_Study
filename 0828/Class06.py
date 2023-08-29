@@ -6,8 +6,8 @@ import calendar
 mpl.rcParams['font.family'] = 'Malgun Gothic'
 mpl.rcParams['axes.unicode_minus'] = False
 
-def creat_sales_bar_chart(years, date):
-    month = list(calendar.month_addr)[1:]
+def creat_sales_bar_chart(years, month):
+    month = list(calendar.month_abbr)[1:]
     
     x = np.arange(len(month))
     bar_width = 0.35
@@ -25,10 +25,11 @@ def creat_sales_bar_chart(years, date):
     plt.legend()
     plt.show()
     
-years = ['2022년', '2023년']
+years = ['2022년', '2023년', '2024년']
 data = [
     [50, 40, 30, 20, 60, 70, 80, 90, 100, 110, 120, 130],
-    [60, 50, 40, 30, 80, 90, 100, 110, 120, 130, 140, 150]
+    [60, 50, 40, 30, 80, 90, 100, 110, 120, 130, 140, 150],
+    [50, 40, 30, 20, 60, 70, 80, 90, 100, 110, 120, 130]
 ]
 
 creat_sales_bar_chart(years, data)
