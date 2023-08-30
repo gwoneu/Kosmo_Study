@@ -1,0 +1,35 @@
+자료형
+CHAR(길이 = n) - n만큼의 문자열, 메모리 공간 고정
+VARCHAR(길이), VARCHAR2(길이) - n만큼의 문자열, 메모리 공간 가변
+NUMBER(a,b) - a : 전체자리 수? b : 소수점 아래 몇자리 수?
+DATE - 날짜형식 세기, 연, 월, 일, 시, 분, 초
+BLOB - 2진 데이터
+CLOB - 대용량 텍스트
+BFILE - 파일
+
+집합 연산자
+1. UNION
+두 개의 SELECT문 결과를 결합한다.
+조건 : SELECT문 동일한 수의 열을 가져야하고, 유사한 데이터 타입을 가져야 한다.
+SELECT column1 FORM table1
+UNION
+SELECT column2 FORM table2
+
+사원 번호, 이름, 직급, 급여, 부서넘버 출력 (부서번호 20, 급여 2000 이상, 부서번호 30, 급여 2000 이상)
+2. UNION ALL
+두 개의 SELECT문 결과를 결합한다. 중복된 행을 제거 X
+SELECT column1 FORM table1
+UNION ALL
+SELECT column2 FORM table2
+
+3. INTERSECT
+두 개의 SELECT문의 결과 중 공통된 행만 반환한다.
+SELECT column1 FORM table1
+INTERSECT
+SELECT column2 FORM table2
+
+4. EXCEPT (일부 MINUS)
+첫 번쨰 SELECT문의 결과에서 두 번째 SELECT문의 결과에 있는 행들을 제외하고 나머지만 반환한다.
+SELECT column1 FORM table1
+EXCEPT
+SELECT column2 FORM table2

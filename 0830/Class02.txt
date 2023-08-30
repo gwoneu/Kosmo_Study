@@ -1,0 +1,38 @@
+문자 함수
+CONCAT(str1, str2) : 문자열 두개 연결
+LENGTH(str) : 문자열 길이 반환
+LOWER(str) : 문자열 소문자로 변환
+UPPER(str) : 문자열 대문자로 변환
+SUBSTR(str, start, length) : 문자열을 start부터 자르는데 length개 자른다. SUBSTR('substring',2 ,4)
+REPLACE(str, str_to_replace, replace_str) : 문자열에서 str_to_replace라는 문자열을 replace_str으로 바꿔준다.
+INSTR(string, substring, start, n) : 문자열에서 substring이라는 문자가 어디있는지 찾는다. start : 찾기 시작할 위치, n : 몇 번째
+TRIM([LEADING|TRAILING|BOTH] char from str) : 문자열에서 char를 양쪽에서 제거해준다.
+LEADING : 앞쪽
+TRAILING : 뒤쪽
+BOTH : 양쪽
+LPAD, RPAD(str, length, char) : 문자열 length 사이즈 만큼 채워준다. 남는 부분에는 char를 채워준다.
+LPAD("Oracle", 10, '#') : ####Oracle
+RPAD("Oracle", 10, '#') : Oracle####
+
+숫자 함수
+ABS(n) : 절대값 반환
+CEIL(n) : 올림한 정수
+FLOOR(n) : 내림한 정수
+ROUND(n,m) : 소수점 자리 m번째에서 반올림
+MOD(n1, n2) : n1을 n2로 나눈 나머지 %
+POWER(n1, n2) : n1을 n2만큼 제곱한다.
+SQRT(n) : 제곱근 반환
+EXP(n) : 자연로그 제곱근 반환
+LN(n), LOG(10,n) : 로그값 계산
+SIN(n), COS(n), TAN(n) : 삼각함수 값 반환
+
+날짜 함수
+SYSDATE : 현재 시스템 날짜와 시간을 반환
+CURRENT_DATE : 현재 날짜와 시간을 반환
+EXTRACT(field FROM source) : source에서 field(YEAR, MONTH, DAY 등) 을 추출해서 반환한다.
+TO_DATE(str, format) : 문자열을 format(YYYY/MM/DD, DD/MM/YYYY, DD.MM.YYYY) 형식으로 DATE형으로 반환한다.
+TO_CHAR(date, format) : 날짜값을 format형식 문자열로 반환한다.
+ADD_MONTHS(date, interger) : 날짜값에 interger만큼 개월을 더해서 반환한다.
+MONTH_BETWEEN(date1, date2) : date1, date2 사이 개월 수를 반환한다.
+LAST_DAY(date) : 해당 일자가 속한 달의 마지막 날짜를 반환한다.
+NEXT_DAY(date, day_of_week) : 입력한 일자 다음에 오는 요일을 반환준다.
