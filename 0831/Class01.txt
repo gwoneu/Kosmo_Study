@@ -29,3 +29,19 @@ WHERE L.VALUE IS NULL OR R.VALUE IS NULL
 5. CROSS JOIN : 첫번째 테이블과 두번째 테이블의 모든 조합을 출력
 
 6. SELF-JOIN : 자기 자신에 여러 ROW간 조인 연산을 수행한다.
+
+- SQL - 99 추가된 조인
+1. LATURAL JOIN : 두 개 이상의 동일한 이름을 가진 열들 사이에서 자동으로 일차하는 열들을 결합한다.
+SELECT*
+FROM EMP
+NATURAL JOIN SALGRADE;
+
+SELECT절에서 조인 기준이 되는 column의 이름을 명시할때 객체 이름을 붙이면 안된다.
+
+2. USING 절 : 두 개 이상의 동일한 이름을 가진 열들 사이에서 자동으로 일치하는 열들을 결합한다.
+
+3. ON 절 : 조건식들과 함께 결합할 열들을 직접 비교할 수 있다.
+
+SALGRADE - HISAL을 받는 사람의 인원 수를 등급별로 출력해보기
+EMP 테이블에서 DEPT 테이블과 공통된 'DEPT' 값을 가지지 않은 부서 이름과 위치를 출력해보기
+EMP와 DEPT 결합해서 JOB이 MANAGER인 애들 출력해보기
