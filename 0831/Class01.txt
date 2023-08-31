@@ -1,0 +1,12 @@
+JOIN(조인)
+두 개 이상의 테이블을 열 기준으로 결합해주는 SQL 연산이다. 일반적으로 공통된 열을 기준으로 작업을 한다.
+일치하는 않는 경우는 NULL을 반환한다.
+
+1. INNER JOIN : 두 테이블에서 일치하는 행만 반환 (L ∩ R)
+INNER JOIN DEPT ON DEPT.DEPTNO = EMP.DEPTNO
+
+2. LEFT OUTER JOIN : 첫번째 테이블의 모든 행 그리고 두번째 테이블과 일치하는 행을 출력
+
+3. RIGHT OUTER JOIN : 두번째 테이블의 모든 행 그리고 첫 번째 테이블과 일치하는 행을 출력
+
+4. FULL OUTER JOIN : 두 개의 모든 데이터를 가져와서 한쌍으로 만들고 전체 데이터 출력
