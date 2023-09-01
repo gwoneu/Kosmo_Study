@@ -1,0 +1,9 @@
+데이터 추가, 수정, 삭제
+
+1. 추가 INSERT
+INSERT INTO 테이블(column1, column2, column3, ...)
+VALUES (values1, values2, values3 ...)
+
+EMP 테이블에 새로운 직원 정보를 추가해보자
+INSERT INTO EMP (,,)
+VALUES (,,)
