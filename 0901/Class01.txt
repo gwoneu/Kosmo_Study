@@ -143,3 +143,16 @@ REVOKE SELECT, INSERT ON 객체명 FROM 유저명
 1. 테이블(Tabel)
 2. 인덱스(Index) : 검색속도를 향상시키기 위해 사용된다.
 3. 뷰(View) : 우리가 볼 수 있도록 만들어진 가상 테이블, 저장 공간 차지하지 않는다.
+4. 저장 프로시저(Stored Procedure) : SQL문과 프로그래밍 로직을 결합해서 실행가능한 코드 단위로 데이터베이스 내부 프로그램이다.
+5. 트리거(Trigger) : 데이터베이스에서 발생하는 이벤트(작업)을 자동으로 응답하여 실행되도록 설정한 작업
+6. 함수(Function)
+
+- 제약 조건
+1. Primary key 기본키
+2. Foreign key 외래키
+3. Unique 고유 제약 조건 - 중복 방지
+TABLE EMP COLUMN 열이름 자료형 UNIQUE;
+4. 체크 제약 조건
+TABLE EMP COLUMN 열이름 자료형 CHECK(조건식);
+5. NOT NULL 제약 조건식
+TABLE EMP COLUMN 열이름 자료형 NOT NULL;
