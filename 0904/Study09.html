@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head><title>체크 박스 만들기</title></head>
+<body>
+<h3>먹고 싶은 것 모두 체크하세요</h3>
+<hr>
+    <form>
+        짜장면 <input type="checkbox" value="1">
+        짬뽕 <input type="checkbox" value="2" checked>
+        탕수육 <input type="checkbox" value="3">
+    </form>
+
+    <hr>
+    <form>
+    색선택
+    <input type="color" value="#00BFFF" onchange="document.body.style.color=this.value">
+    </form>
+    <hr>
+    <form>
+        지속시간 (0.0 ~ 10.0시간) :
+        <input type="number" min="0.0" max="10.0" step="0.5"><br><br>
+        온도 설정 : 10&deg;
+        <input type="range" min="10" max="30" list="temperatures">30&deg;
+        <datalist id="temperatures">
+            <option value="12" label="Low">
+            <option value="20" label="Medium">
+            <option value="28" label="High">
+        </datalist>
+    </form>
+    <hr>
+    <form>
+        email : <input type="email" placeholder="id@host"><br>
+        홈페이지 : <input type="url" placeholder="http://"><br>
+        전화번호 : <input type="tel" placeholder="010-1234-5678">
+    </form>
+</body>
+</html>
