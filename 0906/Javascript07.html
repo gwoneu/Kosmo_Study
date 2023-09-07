@@ -26,17 +26,17 @@
         var count = 1;
         var currentChar = str[0];
     
-        for(var i = 1; i < str.length; i++) {
-            if(str[i] == currentChar) {
-                count++;
-            }
-            else {
-                document.write("<p>" + (currentChar + String(count)) + "<p>")
-                currentChar = str[i];
-                count = 1;
-            }
+    for(var i = 1; i < str.length; i++) {
+        if(str[i] == currentChar) {
+            count++;
         }
-        document.write("<p>" + result + "<p>")
+        else {
+            document.write("<p>" + (currentChar + String(count)) + "<p>")
+            currentChar = str[i];
+            count = 1;
+        }
+    }
+    document.write("<p>" + result + "<p>")
 </script>
 </body>
 </html>
