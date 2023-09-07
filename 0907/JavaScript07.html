@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head><title>onload로 이미지 크기 출력</title>
+<script>
+function changeImage() {
+	var sel = document.getElementById("sel");
+	var img = document.getElementById("myImg");
+	img.onload = function () {  // 이미지 크기 출력
+		var mySpan = document.getElementById("mySpan");
+		mySpan.innerHTML = img.width + "x" + img.height;
+	}
+	var index= sel.selectedIndex; // 선택된 옵션 인덱스
+	img.src = sel.options[index].value; // <option>의 value 속성
+}
+</script>
+</head>
+<body onload="changeImage()">
+<h3>onload로 이미지 크기 출력</h3>
+<hr>
+<form>
+<select id="sel" onchange="changeImage()">
+	<option value="https://media.istockphoto.com/id/184276818/ko/%EC%82%AC%EC%A7%84/%EB%A0%88%EB%93%9C-%EC%82%AC%EA%B3%BC%EB%82%98%EB%AC%B4.jpg?s=612x612&w=0&k=20&c=qe0XwDHYbQFgVaqM2unXZWVqI7kV2SSfXrCYaHsdmWM=">사과
+	<option value="https://health.chosun.com/site/data/img_dir/2022/05/04/2022050401754_0.jpg">바나나
+	<option value="https://t1.daumcdn.net/cfile/tistory/9980A0335A22D4680B">망고
+</select>
+<span id="mySpan">이미지 크기</span>
+</form>
+<p><img id="myImg" src="https://media.istockphoto.com/id/184276818/ko/%EC%82%AC%EC%A7%84/%EB%A0%88%EB%93%9C-%EC%82%AC%EA%B3%BC%EB%82%98%EB%AC%B4.jpg?s=612x612&w=0&k=20&c=qe0XwDHYbQFgVaqM2unXZWVqI7kV2SSfXrCYaHsdmWM=" alt="."></p>
+</body>
+</html>
