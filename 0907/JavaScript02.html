@@ -16,6 +16,17 @@ function change() {
     ullst.textContent = "Orange";
     document.getElementById("list").appendChild(ullst);
 }
+function plus() {
+    var ullst = document.createElement("li");
+    ullst.textContent = "Orange";
+    document.getElementById("list2").appendChild(ullst);
+}
+function del(){
+    lst = document.getElementById("list2");
+    if(lst.lastChild){
+        lst.removeChild(lst.lastChild);
+}
+}
 </script>
 </head>
 <body>
@@ -29,5 +40,12 @@ function change() {
         <li>banana</li>
     </ul>
     <input type="button" value="스타일변경" onclick="change()">
+
+    <ul id="list2">
+        <li>apple</li>
+        <li>banana</li>
+    </ul>
+    <input type="button" value="과일 추가" onclick="plus()">
+    <input type="button" value="과일 삭제" onclick="del()">
 </body>
 </html>
