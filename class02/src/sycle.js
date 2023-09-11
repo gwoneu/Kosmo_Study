@@ -12,7 +12,8 @@ class sycle extends React.Component {
             <div>
                 <h2>[THIS IS RENDER FUNCTION]</h2>
                 <p> {this.state.count}번 클릭했습니다. </p>
-                <button onClick={()=> this.setState({count : this.state.count +1})}>Click!</button>
+                <button onClick={()=> this.setState({count : this.state.count +1})}>+ Click!</button>
+                <button onClick={()=> this.setState({count : this.state.count -1})}>- Click!</button>
             </div>
         )
     }
