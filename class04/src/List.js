@@ -2,7 +2,6 @@ import React, {useState} from "react";
 
 const ListItem = ({id, text}) => {
     return <li key={id}>{text}</li>
-    
 };
 
 const ListSet = ({data}) => {
