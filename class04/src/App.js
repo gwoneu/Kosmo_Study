@@ -10,6 +10,8 @@ function App() {
       <Login/>
       <h1>리스트 여러개 만들기</h1>
       <List/>
+      <h1>자동, 수동 로또 만들기</h1>
+      <Random/>
     </div>
   );
 }
