@@ -1,5 +1,5 @@
 import './App.css';
-import Random from './Random';
+import Lotto from './Lotto';
 import Login from './Login';
 import List from './List';
 import Context from './Context';
@@ -13,7 +13,7 @@ function App() {
       <h1>리스트 여러개 만들기</h1>
       <List/>
       <h1>자동, 수동 로또 만들기</h1>
-      <Random/>
+      <Lotto/>
       <h1>콘텍스트 사용해보기</h1>
       <Context/>
       <h1>콘텍스트 언어 전달</h1>
