@@ -1,41 +1,45 @@
 import React, {useState} from "react";
 
-const CartItem = ({id, text}) => {
-    return <li key={id}>{text}</li>
-};
-
-const CartSet = ({data}) => {
-    return (
-        <ul>
-            {data.map((item) => (
-                <CartItem key={item.id} id={item.id} text={item.text}/>
-            ))}
-        </ul>
-    );
-};
-
-const Cart = () => {
-    const [items, setItem] = useState([]);
-
+function Cart() {
+    const [cart, setCart] = useState([]);
     const [input, inputValue] = useState('');
 
-    const handleChange = (event) => {
-        inputValue(event.target.value);
+    const addCart = () => {
+        setCart([...cart, {text: input, completed: false}]);
+        inputValue('');
     };
 
-    const handleAdd = () => {
-        const newItem = {id: items.length + 1, text:input};
-        setItem([...items, newItem]);
-        inputValue("");
+    const checkCart = (index) => {
+        const checkList = [...cart];
+        checkList[index].completed = !checkList[index].completed;
+        setCart(checkList);
     };
-    
+
+    const deleteCart = () => {
+        const newCart = cart.filter((cart) => !cart.completed);
+        setCart(newCart);
+    };
+
     return (
-        <div>
-            <input type="text" value={input} onChange={handleChange}/>
-            <button onClick={handleAdd}>Add</button>
-            <CartSet data={items}/>
-        </div>
+        <>
+            <h1>장바구니</h1>
+            <input type="text" value={input} onChange={(e) => inputValue(e.target.value)}/>
+            <button onClick={addCart}>추가</button>
+
+            <ul style={{listStyle: 'none'}}>
+                {cart.map((item, index) => (
+                    <li key={index}>
+                        <label style={{textDecoration : item.completed ? 'line-through' : 'none'}}>
+                            <input type="checkbox" checked={cart.completed} onChange={() => checkCart(index)}/>
+                            {item.text}
+                        </label>
+                    </li>
+                ))}
+            </ul>
+
+            <button onClick={deleteCart}>삭제</button>
+        </>
     );
-};
+}
 
 export default Cart;
