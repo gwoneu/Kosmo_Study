@@ -4,6 +4,7 @@ import Chat from './Chat'
 import Video from './Video'
 import Product from './Product'
 import Query from './Query'
+import ProductList from './ProductList'
 
 function VideoHome() {
   return (
@@ -56,7 +57,7 @@ function App() {
           </Route>
           <Route path="product/:id" element={<Product data={productData}/>}/>
           <Route path="/query" element={<Query/>}/>
-          <Route path="/product" element={<Product/>}/>
+          <Route path="/productlist/:id?" element={<ProductList data={productData}/>}/>
         </Routes>
 
         <nav>
