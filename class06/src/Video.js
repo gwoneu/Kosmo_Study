@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Video() {
+    
     return (
         <div>
             <h1>Video</h1>
