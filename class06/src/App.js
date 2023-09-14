@@ -3,6 +3,7 @@ import Home from './Home'
 import Chat from './Chat'
 import Video from './Video'
 import Product from './Product'
+import Query from './Query'
 
 function VideoHome() {
   return (
@@ -47,12 +48,15 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/chat" element={<Chat/>}>
             <Route index element={<ChatHome/>}/>
-            <Route path="clist" element={<ChatList/>}/>
+            <Route path="list" element={<ChatList/>}/>
           </Route>
           <Route path="/video" element={<Video/>}>
             <Route index element={<VideoHome/>}/>
             <Route path="list" element={<VideoList/>}/>
           </Route>
+          <Route path="product/:id" element={<Product data={productData}/>}/>
+          <Route path="/query" element={<Query/>}/>
+          <Route path="/product" element={<Product/>}/>
         </Routes>
 
         <nav>
