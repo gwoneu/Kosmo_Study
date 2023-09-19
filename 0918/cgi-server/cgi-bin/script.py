@@ -6,6 +6,7 @@ email = form.getvalue('email')
 url = form.getvalue('url')
 
 print("Content-Type: text/plain")
+print()
 
 print("Welcome....CGI CODE")
 print("name : ", name)

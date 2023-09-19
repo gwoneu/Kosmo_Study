@@ -12,5 +12,5 @@ data = {
 encData = urlencode(data)
 postData = encData.encode('ascii')
 
-f = urlencode(url, postData)
+f = urlopen(url, postData)
 print(f.read().decode('cp949'))
