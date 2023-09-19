@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <p>{{message}}</p>
+    <h1> NEW MODEL</h1>
+    <ul>
+        {% for model in models %}
+            <li>{{model.name}} : {{model.skill}}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
