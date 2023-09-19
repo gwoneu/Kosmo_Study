@@ -6,6 +6,10 @@ def create_initial_data(apps, schema_editor):
     NewModel = apps.get_model('newapp', 'NewModel')
     NewModel.objects.create(name='kim', skill='java')
     NewModel.objects.create(name='lee', skill='react')
+    
+def delete_initial_data(apps, schema_editor):
+    NewModel = apps.get_model('newapp', 'NewModel')
+    NewModel.objects.all().delete()
 
 
 class Migration(migrations.Migration):
