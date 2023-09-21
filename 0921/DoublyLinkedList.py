@@ -1,9 +1,10 @@
 class Node:
     def __init__(self, data):
         self.data = data
+        self.prev = None
         self.next = None
-        
-class SinglyLinkedList:
+
+class DoublyLinkedList:
     def __init__(self):
         self.head = None
         
@@ -25,30 +26,40 @@ class SinglyLinkedList:
         newNode = Node(data)
         if not self.is_empty():
             newNode.next = self.head
+            self.head.prev = newNode
         self.head = newNode
-            
-    def delete(self, data):
-        prevNode, currentNode = None, self.head
         
+    def delete(self, data):
         if not self.is_empty():
             if self.head.data == data:
-                self.head = self.head.next
+                temp = self.head
+                if temp.next: # head 다음 노드가 존재하는 경우에만 prev를 None으로 설정
+                    temp.next.prev = None
+                self.head = temp.next
+                temp.next = None
             else:
-                while currentNode != None and currentNode.data != data:
-                    prevNode = currentNode
+                currentNode = self.head
+                
+                while currentNode  and currentNode.data != data:
                     currentNode = currentNode.next
                     
-                if currentNode != None:
-                    prevNode.next = currentNode.next
+                if currentNode:
+                    prevNode = currentNode.prev
+                    nextNode = currentNode.next
+                    
+                    if currentNode:
+                        prevNode.next = nextNode
+                        
+                    if nextNode:
+                        nextNode.prev = prevNode
                     
 def print_linked_list(linked_list):
     currentNode = linked_list.head
     while currentNode is not None:
         print(currentNode.data, end=' ')
         currentNode = currentNode.next
-        
     print()
-    
+
 def reverse(linked_list):
     prev_node = None
     curr_node = linked_list.head
@@ -61,8 +72,8 @@ def reverse(linked_list):
         curr_node = temp
         
     linked_list.head = prev_node
-        
-linked_list = SinglyLinkedList()
+
+linked_list = DoublyLinkedList()
 
 linked_list.append(1)
 linked_list.append(2)
@@ -74,7 +85,4 @@ linked_list.delete(2)
 
 print_linked_list(linked_list)
 
-reverse(linked_list)
-print_linked_list(linked_list)
-
-# 단일 연결 리스트를 역순으로 뒤집는 함수 만들기
+# 이중 연결 리스트를 역순으로 뒤집는 함수 만들기
