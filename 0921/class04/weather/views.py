@@ -15,7 +15,7 @@ class IndexView(BaseView):
         weather_data = []
         
         for city in cities:
-            city_weather = requests.get(url.format(city)).json()
+            city_weather = requests.get(self.url.format(city)).json()
 
             weather = {
                 'id' : city.id,
@@ -38,11 +38,11 @@ class IndexView(BaseView):
         
         return self.get(request)
         
-class DetailView(View):
-    def get(self, request):
+class DetailView(BaseView):
+    def get(self, request, city_id):
         
         city = get_object_or_404(City, pk=city_id)
-        city_weather = requests.get(url.format(city)).json()
+        city_weather = requests.get(self.url.format(city)).json()
 
         weather = {
             'id' : city.id,
