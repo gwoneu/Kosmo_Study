@@ -3,6 +3,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Book
 from .forms import BookForm
+from .book_utils import get_book_image
 
 class BookListView(ListView):
     model = Book
@@ -10,7 +11,13 @@ class BookListView(ListView):
 
 class BookDetailView(DetailView):
     model = Book
-
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        api_key = 'AIzaSyAsRdkKnvuDt7CdRbUmw3mw_pmoqsQeP8c'
+        context['cover_url'] = get_book_image(self.object.title, api_key)
+        return context
+        
 class BookCreateView(CreateView):
     model = Book
     form_class = BookForm
