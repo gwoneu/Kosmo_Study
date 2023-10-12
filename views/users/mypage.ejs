@@ -1,0 +1,54 @@
+<style>
+    .mypagebox{
+        text-align: left;
+        justify-content: center;
+        padding-left: 40px;
+    }
+    .mypagebox p {margin-bottom: 10px;}
+    .g {display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .uid{
+        margin-bottom: 15px;
+        font-weight: 600;
+        font-size: 40px;
+    }
+</style>
+<div class="row my-5 justify-content-center">
+    <h1 class="text-center mb-5">마이페이지</h1>
+    <div class="col-md-7 card p-5 shadow p-3 mb-5 bg-body-tertiary rounded">
+        <div class="g">
+            <div class="col-md-4">
+                <img src="http://via.placeholder.com/100x100" style="border-radius: 50%;" width="100%" id="photo">
+            </div>
+            <div class="col mypagebox">
+                <div class="uid">
+                    <%=user.uid%>
+                    <a href="/users/change?uid=<%=user.uid%>" class="btn btn-outline-danger btn-sm mx-3" id="change">비밀번호변경</a>
+                </div>
+                <p>이름 : <%=user.uname%></p>
+                <p>전화 : <%=user.phone%></p>
+                <p>주소 : <%=user.address1%> <%=user.address2%></p>
+            </div>
+        </div>
+    </div>
+    <div class="text-center mt-4" id="update">
+        <a class="btn btn-danger" href="/users/update?uid=<%=user.uid%>">정보수정</a>
+    </div>
+</div>
+<script>
+    const photo="<%=user.photo%>";
+    if(photo){
+        $("#photo").attr("src", "/upload/photo/" + photo);
+    }else{
+        $("#photo").attr("src", "http://via.placeholder.com/100x100");
+    }
+
+    const uid="<%=user.uid%>";
+    if(sessionStorage.getItem("uid") != uid){
+        $("#update").hide();
+        $("#change").hide();
+    }
+</script>
