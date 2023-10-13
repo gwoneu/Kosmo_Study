@@ -1,0 +1,29 @@
+<!-- Modal -->
+<div class="modal fade" id="modal{{@index}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">도서정보</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-4">
+                    <img src="{{isImage thumbnail}}" width="100%">
+                </div>
+                <div class="col">
+                    <h3 class="mb-3 mt-4">{{title}}</h3>
+                    <h6 class="mb-2">저자 : {{authors}}</h6>
+                    <h6 class="mb-2">가격 : {{fmtPrice price}}</h6>
+                    <h6>출판사 : {{publisher}}</h6>
+                </div>
+            </div>
+            <hr>
+            <div>{{contents}}</div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">닫기</button>
+        </div>
+        </div>
+    </div>
+</div>

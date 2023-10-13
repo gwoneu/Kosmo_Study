@@ -65,7 +65,7 @@
         }).open();
     });
 
-    //파일이 바뀐 경우 미리보기
+    //파일이 바뀐 경우 (미리보기)
     $(frm.file).on("change", function(e){
         $("#photo").attr("src", URL.createObjectURL(e.target.files[0]));
     });

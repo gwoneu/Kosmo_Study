@@ -93,7 +93,7 @@ router.get('/update', function(req, res){
     });
 });
 
-//정보수정
+//정보수정하기
 router.post('/update', upload.single('file'), function(req, res){
     const uid=req.body.uid;
     const uname=req.body.uname;
