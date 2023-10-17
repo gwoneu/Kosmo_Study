@@ -16,3 +16,11 @@
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
     }
+
+    .menu ul li a {
+        font-size: 14px; letter-spacing: -1px;
+    }
+
+    .menu ul li a:hover {
+        color: #CC3333 !important;
+    }
