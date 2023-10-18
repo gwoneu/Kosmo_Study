@@ -15,7 +15,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/users">사용자리스트</a>
                 </li>
-                <li class="nav-item" style="display: none;" id="admin">
+                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/books/list">도서목록</a>
                 </li>
                 <li class="nav-item">
@@ -40,10 +40,6 @@
     </div>
 </nav>
 <script>
-    //red가 admin 역할로 도서리스트가 보이게
-    if((sessionStorage.getItem("uid")=="red")){
-        $("#admin").toggle();
-    }
 
     if(sessionStorage.getItem("uid")){
         $("#login, #mypage, #logout, #insert").toggle(); //반대로 해준다.
