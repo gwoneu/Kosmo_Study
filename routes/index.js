@@ -12,20 +12,28 @@ router.get('/search', function(req, res){
     res.render('index', {title:'지역검색', pageName:'local/search.ejs'});
 });
 
-//도서목록 JSON
+//도서목록 JSON info
 router.get('/books.json', function(req, res){
+    const uid=req.query.uid;
     const page=parseInt(req.query.page);
     const query=`%${req.query.query}%`;
     // console.log('.............', query);
     const start=(page-1)*6;
-    const sql=`select * from books where title like ? or authors like ? order by bid desc limit ?,6`;
-    db.get().query(sql, [query, query, start], function(err, rows){ //요기에 배열을 넣어주면 위에 ?로 값이 들어감
+    //const sql=`select * from books where title like ? or authors like ? order by bid desc limit ?,6`;
+    let sql='select *,';
+    sql+='(select count(*) from favorite where bid=books.bid) fcnt, ';
+    sql+='(select count(*) from favorite where bid=books.bid and uid=?) ucnt ';
+    sql+='from books ';
+    sql+='where title like ? or authors like ? ';
+    sql+='order by bid desc ';
+    sql+='limit ?,6;';
+    db.get().query(sql, [uid, query, query, start], function(err, rows){ //요기에 배열을 넣어주면 위에 ?로 값이 들어감
         if(err) console.log('도서목록 JSON : ', err);
         res.send(rows);
     });
 });
 
-//도서갯수 출력
+//도서갯수 출력 (home 총 도서 개수)
 router.get('/count', function(req, res){
     const query=`%${req.query.query}%`;
     const sql='select count(*) total from books where title like ? or authors like ?'; //count의 값이 totall로 들어감
