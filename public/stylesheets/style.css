@@ -17,6 +17,14 @@
         -webkit-box-orient: vertical;
     }
 
+    .ellipsis2 {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+
     .menu ul li a {
         font-size: 14px; letter-spacing: -1px;
     }

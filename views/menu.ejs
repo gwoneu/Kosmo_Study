@@ -15,7 +15,7 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/users">사용자리스트</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" style="display: none;" id="admin">
                     <a class="nav-link active" aria-current="page" href="/books/list">도서목록</a>
                 </li>
                 <li class="nav-item">
@@ -40,6 +40,11 @@
     </div>
 </nav>
 <script>
+    //red가 admin 역할로 도서리스트가 보이게
+    if((sessionStorage.getItem("uid")=="red")){
+        $("#admin").toggle();
+    }
+
     if(sessionStorage.getItem("uid")){
         $("#login, #mypage, #logout, #insert").toggle(); //반대로 해준다.
         $("#mypage a").html(sessionStorage.getItem("uid") + " 님");
@@ -62,4 +67,5 @@
     //    location.href = "/users/mypage?uid=" + sessionStorage.getItem("uid");
     //});  위의 코드와 같다. 더 간략하게 사용 가능
     });
+
 </script>
