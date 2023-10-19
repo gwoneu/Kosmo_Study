@@ -1,33 +1,36 @@
 <div class="my-5">
     <h1 class="text-center mb-5">도서정보</h1>
-    <div class="row">
+    <div class="row px-5">
         <div class="col-lg-4 mb-3">
             <img src="<%=book.image%>" width="90%">
         </div>
-        <div class="col">
-            <h4 class="mb-4" id="title">
+        <div class="col pt-3">
+            <h5 id="title">
                 [<%=book.bid%>] <%=book.title%>
-                <i class="bi bi-heart ms-2 like" id="like"></i>
-                    <span id="count" class="count">0</span>
-            </h4>
+                <i class="bi bi-heart ms-3 like" id="like"></i>
+                <span id="count" class="count">0</span>
+            </h5>
             <hr>
-            <div class="my-3"><strong>저자 : </strong><%=book.authors%></div>
-            <div class="my-3"><strong>가격 : </strong><%=book.fmtprice%>원</div>
-            <div class="my-3"><strong>등록일 : </strong><%=book.fmtdate%></div>
-            <div class="my-3"><strong>출판사 : </strong><%=book.publisher%></div>
-            <div class="my-3"><strong>ISBN : </strong><%=book.isbn%></div>
-            <div class="my-3"><%=book.contents%></div>
+            <div class="my-3">저 자: <%=book.authors%></div>
+            <div class="my-3">가 격: <%=book.fmtprice%>원</div>
+            <div class="my-3">등록일: <%=book.fmtdate%></div>
+            <div class="my-3">출판사: <%=book.publisher%></div>
+            <div class="my-3">ISBN: <%=book.isbn%></div>
             <hr>
-            <button class="btn btn-danger px-5">장바구니</button>
-            <button class="btn btn-outline-danger px-5">바로구매</button>
+            <button id="btn-cart" class="btn btn-outline-danger px-5">장바구니</button>
+            <button class="btn btn-danger px-5">바로구매</button>
         </div>
     </div>
-    <ul class="nav nav-tabs m-3" id="myTab" role="tablist">
+    <ul class="nav nav-tabs m-5" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">도서내용</button>
+            <button class="nav-link active" 
+            id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" 
+            type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">도서내용</button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">도서리뷰</button>
+            <button class="nav-link" 
+            id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" 
+            type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">도서리뷰</button>
         </li>
     </ul>
     <div class="tab-content mx-5" id="myTabContent">
@@ -40,33 +43,57 @@
     </div>
 </div>
 <script>
+    $("#profile-tab").click();
     getCheck();
-    //빈하트를 클릭(좋아요 추가)
-    $("#title").on("click", ".bi-heart", function(){
+    
+    //장바구니 버튼을 클릭한 경우
+    $("#btn-cart").on("click", function(){
         if(!sessionStorage.getItem("uid")){
             sessionStorage.setItem("target", "/books/info?bid=<%=book.bid%>");
             location.href="/users/login";
         }else{
             $.ajax({
                 type:"post",
+                url:"/cart/insert",
+                data:{uid:sessionStorage.getItem("uid"), bid:"<%=book.bid%>"},
+                success:function(data){
+                    if(data==0) {
+                        alert("장바구니에 등록되었습니다.");
+                    }else {
+                        alert("장바구니에 존재하는 상품입니다.");
+                    }
+                    //if(confirm("장바구니로 이용하실래요?")) location.href="/cart/list";
+                }
+            });
+        }
+    });
+
+    //빈하트 클릭(추가)
+    $("#title").on("click", ".bi-heart", function(){
+        if(!sessionStorage.getItem("uid")){
+            sessionStorage.setItem("target", "/books/info?bid=<%=book.bid%>");
+            location.href="/users/login"
+        }else{
+            $.ajax({
+                type:"post",
                 url:"/books/like/insert",
                 data:{uid:sessionStorage.getItem("uid"), bid:"<%=book.bid%>"},
                 success:function(){
-                    alert("관심상품 등록 완료했습니다.");
+                    alert("좋아요 추가!");
                     getCheck();
                 }
             });
         }
     });
 
-    //채워진 하트 클릭(좋아요 삭제)
+    //채워진 하트클릭(삭제)
     $("#title").on("click", ".bi-heart-fill", function(){
         $.ajax({
             type:"get",
             url:"/books/like/delete",
             data:{uid:sessionStorage.getItem("uid"), bid:"<%=book.bid%>"},
             success:function(){
-                alert("관심상품 등록을 취소했습니다.");
+                alert("좋아요 취소!");
                 getCheck();
             }
         })
@@ -79,7 +106,7 @@
             data:{uid:sessionStorage.getItem("uid"), bid:"<%=book.bid%>"},
             success:function(data){
                 $("#count").html(data.fcnt);
-                if(data.ucnt==1){
+                if(data.ucnt==1) {
                     $("#like").removeClass("bi-heart");
                     $("#like").addClass("bi-heart-fill");
                 }else{
@@ -87,6 +114,6 @@
                     $("#like").addClass("bi-heart");
                 }
             }
-        });
+        })
     }
 </script>

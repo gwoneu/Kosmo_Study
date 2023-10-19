@@ -1,14 +1,14 @@
 <div class="my-5">
     <h1 class="text-center mb-5">도서정보</h1>
     <div class="text-end">
-        <a href="/books/update?bid=<%=book.bid%>" class="btn btn-primary">정보수정</a>
+        <a href="/books/update?bid=<%=book.bid%>" class="btn btn-danger">정보수정</a>
     </div>
     <div class="card p-3 row m-2">
         <div class="row">
             <div class="col-lg-3 my-3">
                 <img id="image" src="http://via.placeholder.com/170x250" width="100%" style="cursor: pointer;">
                 <input id="file" type="file" class="form-control" style="display: none;">
-                <button id="upload" class="btn btn-primary w-100 mt-2">이미지저장</button>
+                <button id="upload" class="btn btn-outline-danger w-100 mt-2">이미지저장</button>
             </div>
             <div class="col">
                 <h5 class="my-3">코드: <%=book.bid%></h5>
