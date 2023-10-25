@@ -1,4 +1,6 @@
-.App {}
+.App {
+    margin: 50px;
+}
 
 .count {
     width: 500px;
@@ -26,4 +28,13 @@
 .input-group span {
     width: 150px;
     justify-content: center;
+}
+
+.active {
+    color: black;
+    background-color: #CCCCCC;
+}
+
+a {
+    text-decoration: none!important;
 }
