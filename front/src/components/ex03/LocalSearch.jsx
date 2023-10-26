@@ -3,6 +3,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { Table, Spinner, Button, Form, InputGroup, Row, Col } from 'react-bootstrap';
 import { useLocation, useNavigate } from 'react-router-dom';
+import LocalModal from './LocalModal';
 
 const LocalSearch = () => {
     const [locals, setLocals] = useState([]);
@@ -78,6 +79,7 @@ const LocalSearch = () => {
                                 <th>지역명</th>
                                 <th>주소</th>
                                 <th>전화</th>
+                                <th>위치보기</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -86,6 +88,7 @@ const LocalSearch = () => {
                                     <td>{local.id}{local.place_name}</td>
                                     <td>{local.address_name}</td>
                                     <td>{local.phone}</td>
+                                    <td><LocalModal local={local}/></td>
                                 </tr>
                             )}
                         </tbody>

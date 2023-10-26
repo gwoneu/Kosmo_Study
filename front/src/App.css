@@ -31,10 +31,11 @@
 }
 
 .active {
-    color: black;
+    color: white !important;
     background-color: #CCCCCC;
 }
 
 a {
+    color:black !important;
     text-decoration: none!important;
 }
