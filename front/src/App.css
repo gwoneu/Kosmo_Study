@@ -1,41 +1,26 @@
-.App {
-    margin: 50px;
-}
+.App {margin: 50px;}
 
-.count {
-    width: 500px;
-    border: 1px solid gray;
-    padding: 20px;
-    text-align: center;
-}
+.container {max-width: 1920px !important; margin: 0 !important; padding: 0 !important;}
+.ellipsis {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;}
 
-.button {
-    width: 100px;
-    font-size: 30px;
-    background-color: #BCE55C;
-    color: black;
-    cursor: pointer;
-    border-radius: 30px;
-    border: none;
-    padding: 5px 10px;
-}
+/* ex03 */
+.count {width: 500px; border: 1px solid gray; padding: 20px; text-align: center;}
+.button {width: 100px; font-size: 30px; background-color: #BCE55C; color: black; cursor: pointer; border-radius: 30px; border: none; padding: 5px 10px;}
+.text {margin: 0px 20px; font-size: 30px;}
+.input-group span {width: 150px; justify-content: center;}
+.active {color: white;}
+a {text-decoration: none !important;}
 
-.text {
-    margin: 0px 20px;
-    font-size: 30px;
-}
+/* shop HomePage */
+.home {font-size: 1.5rem; color: white !important; margin-right: 20px; margin-left: 20px;}
+.navbar-nav .active, .navbar-nav a {color: white !important; padding: 10px;}
 
-.input-group span {
-    width: 150px;
-    justify-content: center;
-}
+/* BookSearch */
+.booksearch_contents {width: 80%; margin:0 auto;}
+.booksearch_search{display: flex; justify-content: space-between; margin-bottom: 30px;}
+.booksearch_page{margin-top: 50px;}
 
-.active {
-    color: white !important;
-    background-color: #CCCCCC;
-}
-
-a {
-    color:black !important;
-    text-decoration: none!important;
-}
+/* BookList */
+.booklist_contents {width: 80%; margin: 0 auto;}
+.booklist_search{display: flex; justify-content: space-between; margin-bottom: 30px;}
+.booklist_pagination{margin-top: 50px;}

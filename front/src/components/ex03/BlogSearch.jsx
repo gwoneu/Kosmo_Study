@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Table, Button, InputGroup, Form, Row, Col } from 'react-bootstrap';
 
@@ -9,6 +9,7 @@ const BlogSearch = () => {
     const [total, setTotal] = useState(0);
     const [end, setEnd] = useState(false);
     const [cnt, setCnt] = useState(0);
+    const ref_query = useRef(null);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -48,7 +49,12 @@ const BlogSearch = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        navigate(`/blog?page=1&query=${query}`);
+        if(query == ""){
+            alert("검색어를 입력하세요!");
+            ref_query.current.focus();
+        } else {
+            navigate(`/blog?page=1&query=${query}`);
+        }
     }
 
     const onClick = (url) => {
@@ -61,7 +67,7 @@ const BlogSearch = () => {
         setBlogs(data);
     }
 
-    const onChagneSingle = (e, url) => {
+    const onChangeSingle = (e, url) => {
         let data = blogs.map(blog=>blog.url===url ? {...blog, checked:e.target.checked} : blog);
         setBlogs(data);
     }
@@ -77,7 +83,7 @@ const BlogSearch = () => {
                     <Col md={4}>
                         <form onSubmit={onSubmit}>
                         <InputGroup>
-                            <Form.Control value={query} onChange={(e)=>setQuery(e.target.value)}/>
+                            <Form.Control value={query} onChange={(e)=>setQuery(e.target.value)} ref={ref_query}/>
                             <Button variant="dark" type='submit'>검색</Button>
                         </InputGroup>
                         </form>
@@ -96,7 +102,7 @@ const BlogSearch = () => {
                         <tbody>
                             {blogs.map((blog, index)=>
                                 <tr key={blog.url}>
-                                    <td><input onChange={(e)=>onChagneSingle(e, blog.url)} type="checkbox" checked={blog.checked}/></td>
+                                    <td><input onChange={(e)=>onChangeSingle(e, blog.url)} type="checkbox" checked={blog.checked}/></td>
                                     <td>{index} : <a href={blog.url}>{blog.blogname}</a></td>
                                     <td>
                                         <div onClick={()=>onClick(blog.url)} dangerouslySetInnerHTML={{__html:blog.title}} style={{cursor:'pointer', color:'black', fontWeight:'bold'}}></div>
