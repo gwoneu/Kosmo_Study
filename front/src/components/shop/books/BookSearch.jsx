@@ -15,6 +15,7 @@ const BookSearch = () => {
     const [books, setBooks] = useState([]);
     const [total, setTotal] = useState(0);
     const [end, setEnd] = useState(false);
+    const [chcnt, setChcnt] = useState(0);
 
     const getBooks = async() => {
         const url=`https://dapi.kakao.com/v3/search/book?target=title&query=${query}&size=5&page=${page}`;
@@ -24,16 +25,27 @@ const BookSearch = () => {
         setLoading(true);
         const res = await axios(url, config);
         //console.log(res.data);
-        setBooks(res.data.documents);
+
+        let docs = res.data.documents;
+        docs = docs.map(doc=>doc && {...doc, checked:false});
+        setBooks(docs);
+
         setTotal(res.data.meta.pageable_count);
         setEnd(res.data.meta.is_end);
         setLoading(false);
     }
 
 
-    useEffect(()=> {
+    useEffect(() => {
         getBooks();
     }, [location]);
+
+    useEffect(() =>{
+        let cnt = 0;
+        books.forEach(book=>book.checked && cnt++); //단순반복일때, map도 가능하지만 forEach도 사용가능하다.
+        //console.log('..........', cnt); 체크의 수 많큼 cnt 값이 증가하는지 consol 확인
+        setChcnt(cnt);
+    },[books]);
 
     const onSearch = (e) => {
         e.preventDefault();
@@ -58,6 +70,36 @@ const BookSearch = () => {
         }
     }
 
+    const onChangeAll = (e) => {
+        const docs = books.map(book=>book && {...book, checked:e.target.checked});
+        setBooks(docs);
+    }
+
+    const onChangeSingle = (e, isbn) => {
+        const docs = books.map(book=>book.isbn === isbn ? {...book, checked:e.target.checked} : book);
+        setBooks(docs);
+    }
+
+    const onClickSave = async () => {
+        if(chcnt === 0) {
+            alert("저장할 도서들을 선택하세요.");
+        }else {
+            if(window.confirm(`${chcnt}권의 도서를 저장하시겠습니까?`)){
+                let count = 0;
+                for(const book of books){
+                    if(book.checked){
+                        //도서저장
+                        const url = "/books/insert"
+                        const res = await axios.post(url, {...book, authors:book.authors.join()});
+                        if(res.data === 0) count++;
+                    }
+                }
+                alert(`${count}권이 저장되었습니다.`);
+                setBooks(books.map(book=> book && {...book, checked:false}));
+            }
+        }
+    }
+
     if(loading) return <div className='text-center my-5'><Spinner variant='success'/></div>
 
     return (
@@ -65,6 +107,9 @@ const BookSearch = () => {
             <h1 className='text-center my-5'>도서검색</h1>
             <div className='booksearch_contents'>
                 <div className='booksearch_search'>
+                    <div className='booksearch_save'>
+                        <p><Button size='sm' onClick={onClickSave} variant='dark'>선택저장</Button></p>
+                    </div>
                     <div className='booksearch_count'>
                         <p>검색수 : {total}권</p>
                     </div>
@@ -82,6 +127,7 @@ const BookSearch = () => {
                 <Table className='align-middle'>
                     <thead>
                         <tr>
+                            <th><input checked={books.length === chcnt} type='checkbox' onChange={onChangeAll}/></th>
                             <th>이미지</th>
                             <th>제목</th>
                             <th>가격</th>
@@ -92,6 +138,7 @@ const BookSearch = () => {
                     <tbody>
                         {books.map(book=>
                             <tr key={book.isbn} className=''>
+                                <td><input onChange={(e)=>{onChangeSingle(e, book.isbn)}} type='checkbox' checked={book.checked}/></td>
                                 <td><img src={book.thumbnail || "http://via.placeholder.com/170x250"} width="30"/></td>
                                 <td>{book.title}</td>
                                 <td>{book.price}</td>

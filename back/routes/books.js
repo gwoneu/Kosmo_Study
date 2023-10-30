@@ -45,9 +45,9 @@ router.post('/delete', function(req, res){
     const sql = 'delete from books where bid=?';
     db.get().query(sql, [bid], function(err){
         if(err){
-            res.send('0');
+            res.send('0'); //삭제실패
         }else{
-            res.send('1');
+            res.send('1'); //삭제성공
         }
     });
 });
