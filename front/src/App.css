@@ -19,13 +19,23 @@ a {text-decoration: none !important;}
 .booksearch_contents {width: 80%; margin:0 auto;}
 .booksearch_search{display: flex; justify-content: space-between; margin-bottom: 20px;}
 .booksearch_page{margin-top: 50px;}
-.booksearch_count{margin-left: 1030px; margin-top: 6px;}
+.booksearch_count{margin-left: 65%;}
+.booklist_count p{margin-top: 2%;}
 
 /* BookList */
 .booklist_contents {width: 80%; margin: 0 auto;}
 .booklist_search{display: flex; justify-content: space-between; margin-bottom: 20px;}
 .booklist_pagination{margin-top: 50px;}
-.booklist_count{margin-left: 1030px; margin-top: 6px;}
+.booklist_count{margin-left: 65%;}
+.booklist_count p{margin-top: 2%;}
 
 /* LoginPage */
 .loginpage_contents {width: 30%; margin: 0 auto;}
+
+/* MyPage */
+.mypage_contents {width: 80%; margin: 0 auto; display: flex; justify-content: center;}
+.mypage_profile {display: flex; justify-content: center; width: 100%;}
+.mypage_info {margin-left: 5%;}
+
+/* UpdatePage */
+.updatepage_contents{width: 40%; margin: 0 auto;}
