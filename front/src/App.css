@@ -17,10 +17,10 @@ a {text-decoration: none !important;}
 
 /* BookSearch */
 .booksearch_contents {width: 80%; margin:0 auto;}
-.booksearch_search{display: flex; justify-content: space-between; margin-bottom: 20px;}
+.booksearch_save{display: flex; justify-content: space-between;}
 .booksearch_page{margin-top: 50px;}
-.booksearch_count{margin-left: 65%;}
-.booklist_count p{margin-top: 2%;}
+.booksearch_form{margin-bottom: 3%;}
+.booksearch_input{width: 25%; margin: 0 auto;}
 
 /* BookList */
 .booklist_contents {width: 80%; margin: 0 auto;}
@@ -39,3 +39,7 @@ a {text-decoration: none !important;}
 
 /* UpdatePage */
 .updatepage_contents{width: 40%; margin: 0 auto;}
+
+/* HomePage */
+.hompage_container{width: 80%; margin: 0 auto;}
+.heart{color: #FF3333;}

@@ -107,14 +107,8 @@ const BookSearch = () => {
             <h1 className='text-center my-5'>도서검색</h1>
             <div className='booksearch_contents'>
                 <div className='booksearch_search'>
-                    <div className='booksearch_save'>
-                        <p><Button size='sm' onClick={onClickSave} variant='dark'>선택저장</Button></p>
-                    </div>
-                    <div className='booksearch_count'>
-                        <p>검색수 : {total}권</p>
-                    </div>
                     <div className='booksearch_form'>
-                        <div md={3}>
+                        <div className='booksearch_input' md={3}>
                             <form onSubmit={onSearch}>
                                 <InputGroup>
                                     <Form.Control value={query} onChange={(e)=>setQuery(e.target.value)}/>
@@ -122,6 +116,10 @@ const BookSearch = () => {
                                 </InputGroup>
                             </form>
                         </div>
+                    </div>
+                    <div className='booksearch_save'>
+                        <p><Button size='sm' onClick={onClickSave} variant='dark'>선택저장</Button></p>
+                        <p className='booksearch_count'>검색수 : {total}권</p>
                     </div>
                 </div>
                 <Table className='align-middle'>
