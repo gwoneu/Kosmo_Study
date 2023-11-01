@@ -5,7 +5,7 @@ import { IoIosHeart, IoIosHeartEmpty } from 'react-icons/io'
 import { LiaCommentDotsSolid } from 'react-icons/lia'
 import Pagination from "react-js-pagination"
 import './Pagination.css'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, NavLink } from 'react-router-dom'
 
 const HomePage = () => {
     const [books, setBooks] = useState([]);
@@ -43,6 +43,20 @@ const HomePage = () => {
         navi(`${path}?query=${query}&page=${page}`);
     }
 
+    const onClickHeart = async (bid) => {
+        if(sessionStorage.getItem("uid")) {
+            await axios.post('/books/insert/favorite', {uid:sessionStorage.getItem("uid"), bid:bid});
+            getBooks();
+        }else{
+            navi('/users/login');
+        }
+    }
+
+    const onClickFillHeart = async (bid) => {
+        await axios.post('/books/insert/favorite', {uid:sessionStorage.getItem("uid"), bid:bid});
+        getBooks();
+    }
+
     if(loading) return <div className='my-5 text-center'><Spinner variant='dark'/></div>
     return (
         <div className='hompage_container my-5'>
@@ -55,19 +69,24 @@ const HomePage = () => {
                         </InputGroup>
                     </form>
                 </Col>
-                <Col className='mt-1'>검색 수 : {total}권</Col>
+                <Col className='mt-1'>도서 수 : {total}권</Col>
             </Row>
             <Row>
                 {books.map(book=>
-                    <Col sm={6} md={4} lg={2} className='mb-3'>
+                    <Col xs={6} md={4} lg={2} className='mb-3' key={book.bid}>
                         <Card>
                             <Card.Body>
-                                <img src={book.image || "http://via.placeholder.com/170x250"} width="100%" height="250px"/>
+                                <NavLink to={`/books/info/${book.bid}`}>
+                                    <img src={book.image || "http://via.placeholder.com/170x250"} width="100%" height="250px"/>
+                                </NavLink>
                                 <div className='ellipsis mt-2'>{book.title}</div>
                             </Card.Body>
                             <Card.Footer>
                                 <span>
-                                    <span className='heart'>{book.ucnt === 0 ? <IoIosHeartEmpty/>:<IoIosHeart/>}</span>
+                                    <span className='heart'>{book.ucnt === 0 ?
+                                        <IoIosHeartEmpty onClick={()=>onClickHeart(book.bid)}/>
+                                        :
+                                        <IoIosHeart onClick={()=>onClickFillHeart(book.bid)}/>}</span>
                                     <small className='ms-1'>{book.fcnt}</small>
                                 </span>
                                 {book.rcnt === 0 ||

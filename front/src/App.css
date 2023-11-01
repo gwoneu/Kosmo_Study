@@ -43,3 +43,10 @@ a {text-decoration: none !important;}
 /* HomePage */
 .hompage_container{width: 80%; margin: 0 auto;}
 .heart{color: #FF3333;}
+
+/* BookInfo */
+.bookinfo_content{width: 80%; margin: 0 auto;}
+.bookinfo_tab{width: 80%; margin: 0 auto;}
+
+/* ReviewPage */
+.reviewpage_container{width: 80%; margin: 0 auto;}
