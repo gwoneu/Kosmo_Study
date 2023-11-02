@@ -1,9 +1,13 @@
 import axios from 'axios';
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Spinner, Row, Col, Button, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import ModalBox from '../ModalBox';
+import { BoxContext } from '../BoxContext';
 
 const MyPage = () => {
+    const {box, setBox } = useContext(BoxContext);
+
     const navi = useNavigate();
     const ref_file = useRef();
     const [loading, setLoading] = useState(false);
@@ -37,8 +41,13 @@ const MyPage = () => {
 
     const onUpdatePhoto = async () => {
         if(!file) {
-            alert("수정할 이미지를 선택해주세요.");
+            //alert("수정할 이미지를 선택해주세요.");
+            setBox({
+                shoe:true,
+                message:"수정할 사진을 선택해주세요."
+            })
         }else{
+            /*
             if(window.confirm("변경된 사진을 저장하시겠습니까?")){
                 //사진 저장 프로세스(확인버튼을 눌렀을 때)
                 const formData = new FormData();
@@ -47,6 +56,19 @@ const MyPage = () => {
                 await axios.post("/users/update/photo", formData);
                 alert("사진이 변경되었습니다.");
             }
+            */
+            setBox({
+                show:true,
+                message:"변경된 사진을 저장하시겠습니까?",
+                action: async () => {
+                    const formData = new FormData();
+                    formData.append("file", file);
+                    formData.append("uid", uid);
+                    await axios.post("/users/update/photo", formData);
+
+                    setBox({show:true, message:"사진이 변경되었습니다."});
+                }
+            });
         }
     }
 

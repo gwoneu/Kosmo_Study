@@ -1,9 +1,11 @@
 import axios from 'axios';
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { Form, InputGroup, Button, Card } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
+import { BoxContext } from '../BoxContext';
 
 const LoginPage = () => {
+    const {box, setBox} = useContext(BoxContext);
     const navi = useNavigate();
     const ref_uid = useRef(null); //커서 깜빡임
     const [form, setForm] = useState({
@@ -20,16 +22,20 @@ const LoginPage = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
         if(uid === ""){
-            alert("아이디를 입력하세요.");
+            //alert("아이디를 입력하세요.");
+            setBox({show:true, message:"아이디를 입력하세요."});
             ref_uid.current.focus();
         }else if(upass === "") {
-            alert("비밀번호를 입력하세요.");
+            //alert("비밀번호를 입력하세요.");
+            setBox({show:true, message:"비밀번호를 입력하세요."});
         }else {
             const res = await axios.post('/users/login', form);
             if(res.data === 0){
-                alert("존재하지 않은 아이디입니다.");
+                //alert("존재하지 않은 아이디입니다.");
+                setBox({show:true, message:"존재하지 않은 아이디입니다."});
             }else if(res.data === 2){
-                alert("비밀번호가 일치하지 않습니다.")
+                //alert("비밀번호가 일치하지 않습니다.")
+                setBox({show:true, message:"비밀번호가 일치하지 않습니다."})
             }else{
                 sessionStorage.setItem("uid", uid);
                 if(sessionStorage.getItem("target")){

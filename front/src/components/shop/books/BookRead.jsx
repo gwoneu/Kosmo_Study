@@ -1,9 +1,11 @@
 import axios from 'axios';
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
 import { Row, Col, Spinner, Card, Button } from 'react-bootstrap'
+import { BoxContext } from '../BoxContext';
 
 const BookRead = () => {
+    const {box, setBox} = useContext(BoxContext);
     const ref_file = useRef(null);
     const [loading, setLoading] = useState(false);
     const {bid} = useParams();
@@ -48,8 +50,13 @@ const BookRead = () => {
 
     const onUpdateImage = async () => {
         if(!file) {
-            alert("변경할 이미지를 선택해주세요.");
+            //alert("변경할 이미지를 선택해주세요.");
+            setBox({
+                show:true,
+                message:"변경할 이미지를 선택해주세요."
+            });
         }else{
+            /*
             if(window.confirm("이미지를 변경하시겠습니까?")){
                 //이미지변경
                 const formData = new FormData();
@@ -62,6 +69,22 @@ const BookRead = () => {
                     alert("이미지 변경 완료")
                 }
             }
+            */
+            setBox({
+                show:true,
+                message:"이미지를 변경하시겠습니까?",
+                action: async ()=> {
+                    const formData = new FormData();
+                    formData.append("file", file);
+                    formData.append("bid", bid);
+                    const res = await axios.post('/books/update/image', formData);
+                    if(res.data === 0){
+                        setBox({show:true, message:"이미지 변경 실패"});
+                    }else{
+                        setBox({show:true, message:"이미지 변경 완료"})
+                    }
+                }
+            });
         }
     }
 

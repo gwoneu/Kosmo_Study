@@ -1,12 +1,14 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useNavigate, useLocation, useParams } from 'react-router-dom'
 import { Spinner, Row, Col, Card, Button, Tab, Tabs } from 'react-bootstrap';
 import { BsHeartFill, BsHeart } from 'react-icons/bs'
 import { BiMessageDetail } from 'react-icons/bi'
 import ReviewPage from './ReviewPage';
+import { BoxContext } from '../BoxContext';
 
 const BookInfo = () => {
+    const {setBox} = useContext(BoxContext);
     const navi = useNavigate();
     const location = useLocation();
     //console.log('...........', location.pathname);
@@ -44,6 +46,20 @@ const BookInfo = () => {
         getBook();
     }
 
+    const onClickCart = async () => {
+        const res = await axios.post("/cart/insert", {bid, uid:sessionStorage.getItem("uid")});
+            setBox({
+                show:true,
+                message:res.data === 0 ?
+                `장바구니에 등록되었습니다.\n계속 쇼핑하시겠습니까?`
+                :
+                `이미 장바구니에 등록되었습니다. \n장바구니로 이동하시겠습니까?`,
+                action:()=>{
+                    window.location.href="/"
+                }
+            });
+    }
+
     if (loading) return <div className='my-5 text-center'><Spinner variant='primary' /></div>
     return (
         <div className='my-5'>
@@ -63,7 +79,7 @@ const BookInfo = () => {
                         <div className='ellipsis mb-2'>ISBN: {book.isbn}</div>
                         {book.rcnt === 0 ||
                             <span>
-                                <span className='message'><BiMessageDetail /></span>
+                                <span className='message'><BiMessageDetail/></span>
                                 <span className='ms-1 rcnt'>{book.rcnt}</span>
                             </span>
                         }
@@ -76,10 +92,12 @@ const BookInfo = () => {
                             <span className='ms-1 fcnt'>{book.fcnt}</span>
                         </span>
                         <hr />
-                        <div>
-                            <Button variant='outline-dark' className='me-2'>장바구니</Button>
-                            <Button variant='dark'>바로구매</Button>
-                        </div>
+                        {sessionStorage.getItem("uid") &&
+                            <div>
+                                <Button variant='outline-dark' className='me-2' onClick={onClickCart}>장바구니</Button>
+                                <Button variant='dark'>바로구매</Button>
+                            </div>
+                        }
                     </Col>
                 </Row>
             </Card>

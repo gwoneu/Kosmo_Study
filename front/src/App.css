@@ -51,3 +51,7 @@ a {text-decoration: none !important;}
 
 /* ReviewPage */
 .reviewpage_content{width: 80%; margin: 0 auto;}
+
+/* CartPage */
+.cartpage_content{width: 80%; margin: 0 auto;}
+.cartpage_delete {cursor: pointer; color:#333333;}

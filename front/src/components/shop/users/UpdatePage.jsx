@@ -1,10 +1,12 @@
 import axios from 'axios';
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { InputGroup,Form, Button, Col, Row, Spinner } from 'react-bootstrap'
 import ModalPostCode from './ModalPostCode';
 import { useNavigate } from 'react-router-dom';
+import { BoxContext } from '../BoxContext';
 
 const UpdatePage = () => {
+    const {box, setBox} = useContext(BoxContext);
     const navi = useNavigate();
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState({
@@ -38,6 +40,7 @@ const UpdatePage = () => {
 
     const onUpdate = async (e) => {
         e.preventDefault();
+        /*
         if(window.confirm('정보를 수정하시겠습니까?')){
             const res = await axios.post('/users/update', user);
             if(res.data === 1){
@@ -47,6 +50,23 @@ const UpdatePage = () => {
                 alert("정보수정이 실패했습니다.");
             }
         }
+        */
+        setBox({
+            show:true,
+            message:"정보를 수정하시겠습니까?",
+            action: async ()=>{
+                const res = await axios.post('/users/update', user);
+                if(res.data === 1){
+                    //alert("정보가 수정되었습니다.");
+                    setBox({show:true, message:"정보가 수정되었습니다."});
+                    navi('/users/mypage');
+                }else{
+                    //alert("정보수정이 실패했습니다.");
+                    setBox({show:true, message:"정보 수정이 실패했습니다."})
+                }
+            }
+        });
+        
     }
 
     if(loading) return <div className='my-5 text-center'><Spinner variant='primary'/></div>
