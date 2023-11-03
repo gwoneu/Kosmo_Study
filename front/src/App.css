@@ -54,4 +54,9 @@ a {text-decoration: none !important;}
 
 /* CartPage */
 .cartpage_content{width: 80%; margin: 0 auto;}
-.cartpage_delete {cursor: pointer; color:#333333;}
+.cartpage_deletei_icon{cursor: pointer; color: #333333 !important;}
+.cartpage_tbody td{height: 60px;}
+.cartpage_count{font-weight: 700; font-size: 0.9rem;}
+
+/* OrderPage */
+.orderpage_content{width: 80%; margin: 0 auto;}

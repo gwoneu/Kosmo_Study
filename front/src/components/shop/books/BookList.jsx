@@ -5,6 +5,8 @@ import { Spinner, Table, InputGroup, Form, Button } from 'react-bootstrap';
 import Pagination from "react-js-pagination";
 import '../Pagination.css';
 import { BoxContext } from '../BoxContext';
+import { BiMessageDetail } from 'react-icons/bi'
+import { BsHeartFill} from 'react-icons/bs'
 
 const BookList = () => {
     const {box, setBox} = useContext(BoxContext);
@@ -56,6 +58,7 @@ const BookList = () => {
     }
 
     const onDelete = async (bid) => {
+        /*
         if(!window.confirm(`${bid}번 도서를 삭제하시겠습니까?`)) return;
         const res = await axios.post('/books/delete', {bid});
         if(res.data === 0){
@@ -64,6 +67,19 @@ const BookList = () => {
             alert('삭제를 완료했습니다.');
             getBooks();
         }
+        */
+        setBox({
+            show:true,
+            message:`${bid}번 도서를 삭제하시겠습니까?`,
+            action: async ()=>{
+                const res = await axios.post('/books/delete', {bid});
+                if(res.data ===0){
+                    setBox({show:true, message:"삭제를 실패했습니다."});
+                }else{
+                    setBox({show:true, message:"삭제를 완료했습니다."});
+                }
+            }
+        });
     }
 
     const onChangeAll = (e) => {
@@ -160,8 +176,8 @@ const BookList = () => {
                                 <td width="30%">
                                     <div className='ellipsis'>
                                         <NavLink to={`/books/read/${book.bid}`}>{book.title}</NavLink>
-                                        <span>리뷰:{book.rcnt}</span>
-                                        <span>좋아요:{book.fcnt}</span>
+                                        <span> <BiMessageDetail/> :{book.rcnt}</span>
+                                        <span> <BsHeartFill/> :{book.fcnt}</span>
                                     </div>
                                 </td>
                                 <td width="20%"><div className='ellipsis'>{book.authors}</div></td>
