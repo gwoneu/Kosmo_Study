@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { Table, Spinner } from 'react-bootstrap'
 import Pagination from "react-js-pagination";
 import '../Pagination.css';
+import OrderModal from './OrderModal';
 
 const OrderList = () => {
     const navi=useNavigate();
@@ -18,8 +19,7 @@ const OrderList = () => {
     
     const getPurchase = async() =>{
         setLoading(true);
-        const res=await
-            axios(`/orders/list/purchase.json?uid=${sessionStorage.getItem("uid")}&page=${page}&size=${size}`);
+        const res = await axios(`/orders/list/purchase.json?uid=${sessionStorage.getItem("uid")}&page=${page}&size=${size}`);
         //console.log(res.data);    
         setList(res.data.list);
         setTotal(res.data.total);
@@ -42,11 +42,12 @@ const OrderList = () => {
                 <Table hover>
                     <thead>
                         <tr className='text-center'>
-                            <td>주문번호</td>
-                            <td>주문자일</td>
-                            <td>전화</td>
-                            <td>금액</td>
-                            <td>주문상태</td>
+                            <th>주문번호</th>
+                            <th>주문자일</th>
+                            <th>전화</th>
+                            <th>금액</th>
+                            <th>주문상태</th>
+                            <th>주문상품</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -57,6 +58,7 @@ const OrderList = () => {
                                 <td>{p.rphone}</td>
                                 <td>{p.fmtsum}원</td>
                                 <td>{p.str_status}</td>
+                                <td><OrderModal purchase={p} sum={p.fmtsum}/></td>
                             </tr>
                         )}
                     </tbody>

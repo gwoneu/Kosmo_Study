@@ -63,3 +63,6 @@ a {text-decoration: none !important;}
 
 /* OrderList */
 .orderlist_content{width: 80%; margin: 0 auto;}
+
+/* OrderAdmin */
+.orderadminpage_content{width: 80%; margin: 0 auto;}
