@@ -66,7 +66,6 @@ const UpdatePage = () => {
                 }
             }
         });
-        
     }
 
     if(loading) return <div className='my-5 text-center'><Spinner variant='primary'/></div>
