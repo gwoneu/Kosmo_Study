@@ -1,0 +1,11 @@
+package com.example.dao;
+
+public class MysqlDAOImpl implements MysqlDAO {
+	//MySqlDAO를 구현한 구현체
+	
+	@Override
+	public String now() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}
