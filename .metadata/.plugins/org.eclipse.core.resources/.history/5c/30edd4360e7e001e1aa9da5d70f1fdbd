@@ -1,0 +1,16 @@
+<div class="my-5">
+	<h1 class="text-center mb-5">글쓰기</h1>
+	<form name="frm">
+		<input name="title" class="form-control mb-3" placeholder="제목을 입력하세요.">
+		<textarea name="body" class="form-control" rows="10"></textarea>
+		<div class="text-center mt-4">
+			<button class="btn btn-dark" type="submit">저장</button>
+			<button class="btn btn-outline-dark" type="reset">취소</button>
+		</div>
+	</form>
+</div>
+<script> //$ -> jquery
+	$(frm).on("submit", function(e){
+		e.preventDefault();
+	});
+</script>

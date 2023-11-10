@@ -1,0 +1,31 @@
+<div class="my-5">
+	<h1 class="text-center mb-5">게시글수정</h1>
+	<div id="div_post"></div>
+</div>
+
+<script id="temp_post" type="x-handlebars-template">
+	<form name="frm">
+		<input name="title" class="form-control mb-3" value={{title}}>
+		<textarea name="body" rows="10" class="form-control">{{body}}</textarea>
+		<div class="text-center mt-4">
+			<button class="btn btn-dark px-4">수정</button>
+			<button type="reset" class="btn btn-outline-dark px-4">취소</button>
+		</div>
+	</form>
+</script>
+<script>
+	const pid = "[[${pid}]]";
+	getPost();
+	
+	function getPost(){
+		$.ajax({
+			type:"get",
+			url:"/posts/read.json",
+			data: {pid},
+			success:function(data){
+				//console.log(data);
+				const temp = Handlebars.compile($("#temp_post").html());
+				$("#div_post").html(temp(data));			}
+		});
+	}
+</script>
