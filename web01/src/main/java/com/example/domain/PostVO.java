@@ -8,7 +8,25 @@ public class PostVO extends UserVO { //UserVO 를 상속받는다.
 	private String body;
 	private String writer;
 	private Date regdate; //필드명은 소문자 private 라서 getter setter 로 가져와야 함
+	private int viewcnt;
+	private int commcnt;
 	
+	public int getCommcnt() {
+		return commcnt;
+	}
+
+	public void setCommcnt(int commcnt) {
+		this.commcnt = commcnt;
+	}
+
+	public int getViewcnt() {
+		return viewcnt;
+	}
+
+	public void setViewcnt(int viewcnt) {
+		this.viewcnt = viewcnt;
+	}
+
 	public int getPid() { // pid 를 가져올 때
 		return pid;
 	}

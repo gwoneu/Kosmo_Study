@@ -1,0 +1,21 @@
+package com.example.dao;
+
+import java.util.HashMap;
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class CommentDAOImpl implements CommentDAO {
+	@Autowired
+	SqlSession session;
+	
+	@Override //재정의
+	public List<HashMap<String, Object>> list(int pid, int page, int size) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

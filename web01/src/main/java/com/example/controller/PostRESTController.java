@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.dao.PostDAO;
 import com.example.domain.PostVO;
+import com.example.service.PostService;
 
 @RestController //ResponseBody 생략 가능
 @RequestMapping("/posts")
@@ -20,14 +21,27 @@ public class PostRESTController {
 	@Autowired
 	PostDAO dao;
 	
+	@Autowired
+	PostService service;
+	
 	@GetMapping("/list.json")
 	public List<HashMap<String,Object>> list(){
 		return dao.list();
 	}
 	
+	@GetMapping("/total")
+	public int total(String key, String query){
+		return dao.total(key, query);
+	}
+	
+	@GetMapping("/list1.json") //localhost:8080/posts/list1.json?page=1&size=5
+	public List<HashMap<String,Object>> list1(int page, int size, String key, String query){
+		return dao.list1(page, size, key, query);
+	}
+	
 	@GetMapping("/read.json") //localhost:8080/posts/read.json?pid=
 	public HashMap<String,Object> read(int pid){
-		return dao.read(pid);
+		return service.read(pid);
 	}
 	
 	@PostMapping("/insert")
