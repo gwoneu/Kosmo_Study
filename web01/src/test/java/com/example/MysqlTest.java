@@ -6,16 +6,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.dao.MysqlDAO;
 import com.example.dao.PostDAO;
+import com.example.dao.ProDAO;
 import com.example.dao.UserDAO;
 import com.example.domain.PostVO;
 
 @SpringBootTest
 public class MysqlTest {
-//	@Autowired
-//	UserDAO dao;
-//	
-//	@Test
-//	public void read() {
-//		dao.read("blue");
-//	}
+	@Autowired
+	ProDAO dao;
+	
+	@Test
+	public void list() {
+		dao.list();
+	}
 }
