@@ -1,0 +1,47 @@
+<div class="my-5">
+	<h1 class="title text-center mb-5">강좌목록</h1>
+	<div id="div_cou"></div>
+</div>
+<script id="temp_cou" type="x-handlebars-template">
+	<table class="table table-hover text-center">
+	<thead>
+	    <th style="width: 10%;">강좌번호</th>
+	    <th style="width: 15%;">강좌이름</th>
+	    <th style="width: 20%;">강의시간(강의실)</th>
+	    <th style="width: 15%;">담당교수(교수번호)</th>
+	    <th style="width: 20%;">신청인원수/최대인원</th>
+	</thead>
+		<tbody>
+			{{#each .}}
+			<tr>
+				<td>{{lcode}}</td>
+				<td><a href="/cou/read?lcode={{lcode}}">{{lname}}</a></td>
+				<td>{{hours}} ({{room}})</td>
+				<td>{{pname}} ({{instructor}})</td>
+				<td>{{persons}} / {{capacity}}</td>
+			</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</script>
+<script>
+	let page=1;
+	const size=10;
+	
+	getList();
+	function getList(){
+		$.ajax({
+			type:"get",
+			url:"/cou/list.json",
+			data:{size, page},
+			success:function(data){
+				if(data==0){
+					$("#div_cou").html("<h4 class='search_none text-center my-5'>검색자료가 존재하지 않습니다.</h4>");
+				}else{
+					const temp=Handlebars.compile($("#temp_cou").html());
+					$("#div_cou").html(temp(data));
+				}
+			}
+		});
+	}
+</script>

@@ -10,25 +10,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ProController {
 	@GetMapping("/list")
 	public String list(Model model) {
-		model.addAttribute("pageName", "pro/list.html");
+		model.addAttribute("pageName", "pro/list");
 		return "home.html";
 	}
 	
 	@GetMapping("/insert")
 	public String insert(Model model) {
-		model.addAttribute("pageName", "pro/insert.html");
+		model.addAttribute("pageName", "pro/insert");
 		return "home.html";
 	}
 	
 	@GetMapping("/read")
 	public String read(Model model) {
-		model.addAttribute("pageName", "pro/read.html");
+		model.addAttribute("pageName", "pro/read");
 		return "home.html";
 	}
 	
 	@GetMapping("/update")
 	public String update(Model model) {
-		model.addAttribute("pageName", "pro/update.html");
+		model.addAttribute("pageName", "pro/update");
 		return "home.html";
 	}
 }

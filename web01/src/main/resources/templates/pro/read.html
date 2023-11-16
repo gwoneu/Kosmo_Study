@@ -22,7 +22,7 @@
 	</div>
 </div>
 <script id="temp_stu" type="x-handlebars-template">
-	<table class="table text-center">
+	<table class="table table-hover text-center">
 		<thead>
 			<th>학생번호</th>
 			<th>학생이름</th>
@@ -68,9 +68,9 @@
 <script id="temp_pro" type="x-handlebars-template">
 	<div class="col-md-6">
 		<div class="card p-3 text-center">
-			<div>교수이름 : {{pname}} ({{pcode}})</div><hr>
-			<div>소속학과 : {{dept}}</div><hr>
-			<div>직급 : {{title}} ({{fmtdate}})</div><hr>
+			<div><strong>교수이름</strong> : {{pname}} ({{pcode}})</div><hr>
+			<div><strong>소속학과</strong> : {{dept}}</div><hr>
+			<div><strong>직급</strong> : {{title}} ({{fmtdate}})</div><hr>
 			<div class="text-center">
 				<a href="/pro/update?pcode={{pcode}}" class="btn btn-dark px-5 btn-sm">정보수정</a>
 			</div>
