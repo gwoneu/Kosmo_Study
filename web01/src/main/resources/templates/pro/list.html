@@ -33,7 +33,7 @@
 		    <th style="width: 20%;">급여</th>
 		</thead>
 		<tbody>
-			{{#each .}}
+			{{#each list}}
 			<tr>
 				<td>{{pcode}}</td>
 				<td><a href="/pro/read?pcode={{pcode}}">{{pname}}</a></td>
@@ -49,35 +49,14 @@
 <script>
 	let page=1;
 	const size=3;
+	let total=0;
+	getList();
 	
 	$(frm).on("submit", function(e){
 		e.preventDefault();
-		page=1;
-		getTotal();
+		getList();
 	});
 	
-	getTotal();
-	
-	function getTotal(){
-		const query=$(frm.query).val();
-		const key=$(frm.key).val(); 
-		$.ajax({
-			type:"get",
-			url:"/pro/total",
-			data:{query, key},
-			success:function(data){
-				$("#total").html(`검색수: ${data}건`);
-				if(data>size){
-					$("#pagination").show();
-					const totalPages = Math.ceil(data/size);
-					$("#pagination").twbsPagination("changeTotalPages", totalPages, page);
-				}else{
-					$("#pagination").hide();
-					getList();
-				}
-			}
-		});
-	}
 	
 	function getList(){
 		const query=$(frm.query).val();
@@ -87,12 +66,20 @@
 			url:"/pro/slist.json",
 			data:{page, size, query, key},
 			success:function(data){
-				if(data==0){
+				$("#total").html(`검색수 : ${data.total}건`);
+				if(data.total==0){
 					$("#div_pro").html("<h4 class='search_none text-center my-5'>검색자료가 존재하지 않습니다.</h4>");
 				}else{
 					const temp=Handlebars.compile($("#temp_pro").html());
 					$("#div_pro").html(temp(data));
+					if(total != data.total){
+						const totalPages = Math.ceil(data.total/size);
+						$("#pagination").twbsPagination("changeTotalPages", totalPages, 1);
+						total=data.total;
+					}
 				}
+				if(data.total>size) $("#pagination").show();
+				else $("#pagination").hide();
 			}
 		});
 	}

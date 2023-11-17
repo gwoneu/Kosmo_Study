@@ -44,33 +44,13 @@
 <script>
 	let page=1;
 	const size=3;
-	getTotal();
+	let total=0;
+	getList();
 	
 	$(frm).on("submit", function(e){
 		e.preventDefault();
-		page=1;
-		getTotal();
-	});
-	
-	function getTotal(){
-		const query = $(frm.query).val();
-		const key = $(frm.key).val();
-		$.ajax({
-			type:"get",
-			url:"/cou/list.json",
-			data:{query, key, page, size},
-			success:function(data){
-				if(data.total>size){
-					$("#pagination").show();
-					const totalPages = Math.ceil(data.total/size);
-					$("#pagination").twbsPagination("changeTotalPages", totalPages, page);
-				}else{
-					$("#pagination").hide();
-					getList();
-				}
-			}
-		});
-	}
+		getList();
+	})
 	
 	function getList(){
 		const key=$(frm.key).val();
@@ -86,7 +66,14 @@
 				}else{
 					const temp=Handlebars.compile($("#temp_cou").html());
 					$("#div_cou").html(temp(data));
+					if(total!=data.total){
+						const totalPages = Math.ceil(data.total/size);
+						$("#pagination").twbsPagination("changeTotalPages", totalPages, 1);
+						total=data.total;
+					}
 				}
+				if(data.total > size) $("#pagination").show();
+				else $("#pagination").hide();
 			}
 		});
 	}

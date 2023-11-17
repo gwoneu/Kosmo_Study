@@ -1,5 +1,0 @@
-package com.example.dao;
-
-public interface PostDAO {
-	public List<HashMap<String, Object>> list(); //여러 개의 자료를 가져올거기 때문에 List
-}
