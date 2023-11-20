@@ -33,4 +33,9 @@ public class CouRestController {
 	public List<HashMap<String, Object>> enroll(String lcode){
 		return dao.enroll(lcode);
 	}
+	
+	@GetMapping("/graph.json")
+	public List<HashMap<String, Object>> graph(){
+		return dao.graph();
+	}
 }

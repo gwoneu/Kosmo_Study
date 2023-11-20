@@ -48,9 +48,10 @@
 		<thead>
 			<th>강좌번호</th>
 			<th>강좌이름</th>
-			<th>강의시간수</th>
+			<th>강의시간</th>
 			<th>강의실</th>
 			<th>수강신청인원수 / 최대수강인원수</th>
+			<th></th>
 		</thead>
 		<tbody>
 			{{#each .}}
@@ -60,6 +61,7 @@
 				<td>{{hours}}</td>
 				<td>{{room}}</td>
 				<td>{{persons}} / {{capacity}}</td>
+				<td><a href="/cou/read?lcode={{lcode}}&tab=2" class="btn btn-outline-dark">점수등록</a></td>
 			</tr>
 			{{/each}}
 		</tbody>
@@ -80,6 +82,7 @@
 
 <script>
 	const pcode = "[[${param.pcode}]]";
+	
 	$(window).on("load", function () {
 		$.ajax({
 			type: "get",

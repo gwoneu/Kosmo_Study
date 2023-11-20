@@ -14,6 +14,9 @@
 				<span id="total" class="ms-3 mt-1"></span>
 			</form>
 		</div>
+		<div class="col text-end mt-2">
+			<a href="/cou/graph1" class="btn btn-outline-dark btn-sm">강좌별평균</a>
+		</div>
 	</div>
 	<hr>
 	<div id="div_cou"></div>
@@ -27,6 +30,7 @@
 	    <th style="width: 20%;">강의시간(강의실)</th>
 	    <th style="width: 15%;">담당교수(교수번호)</th>
 	    <th style="width: 20%;">신청인원수 / 최대인원</th>
+	    <th></th>
 	</thead>
 		<tbody>
 			{{#each list}}
@@ -36,6 +40,9 @@
 				<td>{{hours}} ({{room}})</td>
 				<td>{{pname}} ({{instructor}})</td>
 				<td>{{persons}} / {{capacity}}</td>
+				<td>
+					<a href="/cou/graph?lcode={{lcode}}&lname={{lname}}" class="btn btn-outline-dark btn-sm">그래프</a>
+				</td>
 			</tr>
 			{{/each}}
 		</tbody>
