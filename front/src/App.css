@@ -1,0 +1,24 @@
+.ellipsis {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;}
+
+.title {text-align: center; font-weight: 800; margin-bottom: 4%;}
+
+/* NaviPage */
+.custom-navbar-bg {background-color: "#원하는색상코드";}
+a {text-decoration: none !important; font-size: 1rem; padding: 5px; font-weight: 700;}
+a:visited,a:active{color: #646464;}
+.navbar-nav .active {color:white;}
+
+/* StudentList */
+.studentlist_table {text-align: center;}
+
+/* ProfessorList */
+.professorlist_table{text-align: center;}
+.info_cardgroup{text-align: center; display: flex; justify-content: center;}
+.info_card{width: 40%;}
+.update_btn{width: 50%; margin-top: 2%;}
+
+/* ProfessorUpdate */
+.proupdate_cardgroup{text-align: center; display: flex; justify-content: center;}
+.proupdate_card{width: 40%;}
+.proupdate_btngroup .btn {width: 45%;}
+.proupdate_btngroup {margin-top: 5%;}

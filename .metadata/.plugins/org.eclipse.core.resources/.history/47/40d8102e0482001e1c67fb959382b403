@@ -1,7 +1,0 @@
-    <select id="list1" resultType="hashmap">
-        select p.*, u.uname, date_format(p.regdate, '%Y-%m-%d %T') fmtdate
-		from posts p, users u
-		where p.writer = u.uid and title like concat('%', #{query}, '%')
-		order by pid desc
-		limit #{start}, #{size};
-    </select>
