@@ -73,6 +73,11 @@ public class ShopRestController {
 	
 	@GetMapping("/insert/favorites")
 	public void insert(int pid, String uid) {
-		dao.insertFavorites(pid, uid);
+		service.insertFavorites(pid, uid);
+	}
+	
+	@GetMapping("/delete/favorites")
+	public void delete(int pid, String uid) {
+		service.deleteFavorites(pid, uid);
 	}
 }

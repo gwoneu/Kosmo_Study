@@ -1,14 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import { Button, Col, Row } from 'react-bootstrap';
+import { Button, Col, Row, Tab, Tabs } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { HiHeart } from "react-icons/hi2";
 import { HiOutlineHeart } from "react-icons/hi2";
+import ReviewPage from './ReviewPage';
 
 const ShopInfo = () => {
     const {pid} = useParams();
     const [shop, setShop] = useState('');
-    const {title, maker, image, fmtprice, fmtdate, ucnt} = shop;
+    const {title, maker, image, fmtprice, fmtdate, ucnt, fcnt} = shop;
 
     const getShop = async () => {
         const res = await axios(`/shop/info/${pid}?uid=${sessionStorage.getItem("uid")}`);
@@ -27,8 +28,15 @@ const ShopInfo = () => {
         }else{
             //좋아요 추가
             await axios(`/shop/insert/favorites?pid=${pid}&uid=${sessionStorage.getItem("uid")}`);
+            alert("관심상품으로 등록 완료했습니다.")
             getShop();
         }
+    }
+
+    const onClickHeart = async () => {
+        await axios.get(`/shop/delete/favorites?uid=${sessionStorage.getItem("uid")}&pid=${pid}`);
+        alert("관심상품 등록이 취소되었습니다.");
+        getShop();
     }
 
     return (
@@ -42,7 +50,8 @@ const ShopInfo = () => {
                     <h5 className='shopinfo_title'>
                         [{pid}] {title}
                         <span className='heart mx-2'>
-                            {ucnt === 0 ? <HiOutlineHeart onClick={onClickRegHeart}/> : <HiHeart/>}
+                            {ucnt === 0 ? <HiOutlineHeart onClick={onClickRegHeart}/> : <HiHeart onClick={onClickHeart}/>}
+                            <small style={{fontSize:'0.7rem', color:'#000'}}>{fcnt}</small>
                         </span>
                     </h5>
                     <hr/>
@@ -56,6 +65,14 @@ const ShopInfo = () => {
                     </div>
                 </Col>
             </Row>
+            <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="my-5">
+                <Tab eventKey="home" title="상세설명">
+                    상세설명
+                </Tab>
+                <Tab eventKey="profile" title="상품리뷰">
+                    <ReviewPage pid={pid}/>
+                </Tab>
+            </Tabs>
         </div>
     )
 }

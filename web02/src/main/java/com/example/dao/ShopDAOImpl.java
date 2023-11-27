@@ -77,4 +77,20 @@ public class ShopDAOImpl implements ShopDAO {
 		map.put("uid", uid);
 		session.insert(namespace + ".insert_favorites", map);
 	}
+
+	@Override
+	public void deleteFavorites(int pid, String uid) {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("pid", pid);
+		map.put("uid", uid);
+		session.delete(namespace + ".delete_favorites", map);
+	}
+
+	@Override
+	public void updateFavorites(int pid, int amount) {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("pid", pid);
+		map.put("amount", amount);
+		session.delete(namespace + ".update_favorites", map);
+	}
 }
