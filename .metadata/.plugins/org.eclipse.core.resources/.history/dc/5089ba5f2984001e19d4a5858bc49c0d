@@ -1,9 +1,0 @@
-package com.example.dao;
-
-import com.example.domain.*;
-import java.util.*;
-
-public interface StuDAO {
-	public List<HashMap<String, Object>> list(QueryVO vo);
-	piublic int total(QueryVO vo);
-}

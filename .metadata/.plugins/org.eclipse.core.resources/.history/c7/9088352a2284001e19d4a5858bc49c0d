@@ -1,8 +1,0 @@
-package com.example.dao;
-
-import com.example.domain.QueryVO;
-import java.util.*;
-
-public interface StuDAO {
-	public List<HashMap<String, Object>> list(QueryVO vo);
-}
