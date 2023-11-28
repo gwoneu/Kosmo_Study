@@ -3,6 +3,7 @@
 a:link,a:visited,a:active{font-weight: 900;}  
 
 .ellipsis {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;}
+.ellipsis2 {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
 
 .title {text-align: center; font-weight: 800; margin-bottom: 4%;}
 
@@ -23,3 +24,6 @@ a:link,a:visited,a:active{font-weight: 900;}
 .shopinfo_title {font-weight: 600;}
 .shopinfo_img {border: 1px solid #cecece; border-radius: 10px;}
 .heart {color: #D02525;}
+
+/* CartListPage */
+.cart_input_group {max-width: 130px; margin: 0 auto;}

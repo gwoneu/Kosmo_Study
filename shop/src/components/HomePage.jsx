@@ -5,6 +5,7 @@ import "./Pagination.css";
 import Pagination from 'react-js-pagination';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { HiHeart } from 'react-icons/hi2';
+import { IoChatboxEllipsesOutline } from "react-icons/io5";
 
 const HomePage = () => {
     const location = useLocation();
@@ -59,12 +60,13 @@ const HomePage = () => {
                             <Link to={`/shop/info/${shop.pid}`}>
                                 <Card.Body>
                                     <img src={`/display?file=${shop.image}`} width='90%' />
-                                    <div className='producttitle ellipsis'>{shop.title}</div>
+                                    <div className='producttitle ellipsis'>[{shop.pid}] {shop.title}</div>
                                     <div className='price'>{shop.fmtprice}</div>
                                 </Card.Body>
                             </Link>
                             <Card.Footer>
-                                <small><HiHeart className='heart'/> : {shop.fcnt}</small>
+                                <small><HiHeart className='heart'/> {shop.fcnt}</small>
+                                <small className='ms-3'><IoChatboxEllipsesOutline/> {shop.reviewcnt}</small>
                             </Card.Footer>
                         </Card>
                     </Col>

@@ -9,6 +9,7 @@ import LoginPage from './user/LoginPage';
 import { delCookie, getCookie } from '../common';
 import HomePage from './HomePage';
 import ShopInfo from './shop/ShopInfo';
+import CartList from './shop/CartList';
 
 const NaviPage = () => {
     const location = useLocation();
@@ -36,6 +37,7 @@ const NaviPage = () => {
                         <Nav className="me-auto my-2 my-lg-0" style={{ maxHeight: '100%' }} navbarScroll>
                             <Nav.Link href="/shop/search" className={path.indexOf('/shop/search') !== -1 && 'active'}>상품검색</Nav.Link>
                             <Nav.Link href="/shop/list" className={path.indexOf('/shop/') !== -1 && 'active'}>상품관리</Nav.Link>
+                            <Nav.Link href="/cart/list" className={path.indexOf('/cart/') !== -1 && 'active'}>장바구니</Nav.Link>
                         </Nav>
                         <Nav>
                             {sessionStorage.getItem("uid") ?
@@ -64,6 +66,7 @@ const NaviPage = () => {
                 <Route path='/login' element={<LoginPage/>}/>
                 <Route path='/' element={<HomePage/>}/>
                 <Route path='/shop/info/:pid' element={<ShopInfo/>}/>
+                <Route path='/cart/list' element={<CartList/>}/>
             </Routes>
         </>
     )
