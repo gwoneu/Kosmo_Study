@@ -59,7 +59,7 @@ const HomePage = () => {
                         <Card className='hompage_card' style={{ cursor: 'pointer' }}>
                             <Link to={`/shop/info/${shop.pid}`}>
                                 <Card.Body>
-                                    <img src={`/display?file=${shop.image}`} width='90%' />
+                                    <div className='home_img_wrap'><img src={`/display?file=${shop.image}`} width='90%'/></div>
                                     <div className='producttitle ellipsis'>[{shop.pid}] {shop.title}</div>
                                     <div className='price'>{shop.fmtprice}</div>
                                 </Card.Body>

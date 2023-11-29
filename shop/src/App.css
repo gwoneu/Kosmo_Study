@@ -10,9 +10,12 @@ a:link,a:visited,a:active{font-weight: 900;}
 .tablegroup {text-align: center;}
 .tablegroup td {vertical-align: middle;}
 
+.label {width: 100px;}
+
 /* HomePage*/
 .price {font-size: 14px;}
 .producttitle {font-weight: 600;}
+.home_img_wrap {margin: 0 auto; display: flex; justify-content: center;}
 
 /* SearchPage */
 .buttongroup {text-align: center;}
@@ -27,3 +30,6 @@ a:link,a:visited,a:active{font-weight: 900;}
 
 /* CartListPage */
 .cart_input_group {max-width: 130px; margin: 0 auto;}
+
+/* OrderPage */
+.order_cart {margin: 0 auto;}
