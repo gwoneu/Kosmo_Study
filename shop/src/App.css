@@ -33,3 +33,6 @@ a:link,a:visited,a:active{font-weight: 900;}
 
 /* OrderPage */
 .order_cart {margin: 0 auto;}
+
+/* ContentPage */
+.ck.ck-editor__editable:not(.ck-editor__nested-editable) {min-height: 400px; margin-bottom: 20px;}

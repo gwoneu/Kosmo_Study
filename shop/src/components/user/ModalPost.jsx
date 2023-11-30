@@ -30,10 +30,9 @@ const ModalPost = ({onPostCode}) => {
                     <DaumPostCode onComplete={onComplete}/>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
+                    <Button variant="dark btn-sm" onClick={handleClose}>
+                        닫기
                     </Button>
-                    <Button variant="primary">Understood</Button>
                 </Modal.Footer>
             </Modal>
         </>
