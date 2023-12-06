@@ -1,13 +1,13 @@
-from flask import render_template, Blueprint, send_file #Blueprint로 Router 정의
+from flask import render_template, Blueprint, send_file, request # Blueprint로 Router 정의
 from io import BytesIO
 import pandas as pd
 
 import matplotlib.pyplot as plt
 import matplotlib
 
-matplotlib.rcParams['font.family'] = 'Malgun Gothic' #맑은 고딕
-matplotlib.rcParams['font.size'] = 15 #글자 크기
-matplotlib.rcParams['axes.unicode_minus'] = False #한글 폰트 사용 시 마이너스 글자가 깨지는 현상을 해결
+matplotlib.rcParams['font.family'] = 'Malgun Gothic' # 맑은 고딕
+matplotlib.rcParams['font.size'] = 15 # 글자 크기
+matplotlib.rcParams['axes.unicode_minus'] = False # 한글 폰트 사용 시 마이너스 글자가 깨지는 현상을 해결
 
 score = Blueprint('score', __name__)
 
@@ -34,8 +34,24 @@ def score_chart(subject):
     x = df['이름'].values
     y = df[subject].values
     plt.bar(x, y)
+    
     # plt.show() html에서 출력
+    
     img = BytesIO()
     plt.savefig(img, format='png', dpi=50)
     img.seek(0)
     return send_file(img, mimetype='image/png')
+
+@score.route('/list.json')
+def score_json():
+    query = request.args['query']
+    df = pd.read_csv('score.csv', index_col='지원번호')
+    filter = df['이름'].str.contains(query)
+    df = df[filter]
+    # json 파일로 변경
+    json = df.to_json(orient='records') # orient -> 옵션 설정
+    return json
+
+@score.route('/page3')
+def score_page3():
+    return render_template('page3.html')
