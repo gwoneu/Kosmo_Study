@@ -8,8 +8,10 @@ from sklearn.preprocessing import OneHotEncoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import PolynomialFeatures
 import numpy as np
+from scoreRoute import score
 
 app = Flask(__name__)
+app.register_blueprint(score, url_prefix='/score')
 
 @app.route('/')
 def index():
@@ -142,6 +144,16 @@ def score_poly_graph():
     plt.savefig(img, format='png', dpi=50)
     img.seek(0)
     return send_file(img, mimetype='image/png')
+
+# 다항회귀 값 예측
+@app.route('/score/poly')
+def score_poly_value():
+    degree = int(request.args['degree'])
+    hour = float(request.args['hour'])
+    reg = score_poly(degree)[0]
+    poly_reg = score_poly(degree)[1]
+    pred = reg.predict(poly_reg.fit_transform([[hour]]))
+    return str(pred[0])
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
