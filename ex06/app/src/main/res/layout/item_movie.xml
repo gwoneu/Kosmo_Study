@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="30sp">
+
+    <TextView
+        android:id="@+id/rank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FB4357"
+        android:text="순위"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:padding="10sp"/>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_gravity="center"
+        android:layout_marginTop="10sp"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="여기에는 제목"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="10sp"/>
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="예매하기"
+        android:layout_gravity="center"
+        android:layout_marginTop="10sp"
+        android:backgroundTint="#FB4357"
+        android:paddingRight="50sp"
+        android:paddingLeft="50sp"/>
+
+</LinearLayout>
