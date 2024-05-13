@@ -1,0 +1,68 @@
+.App {margin: 50px;}
+
+.container {max-width: 1920px !important; margin: 0 !important; padding: 0 !important;}
+.ellipsis {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical;}
+.ellipsis2 {overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;}
+
+/* ex03 */
+.count {width: 500px; border: 1px solid gray; padding: 20px; text-align: center;}
+.button {width: 100px; font-size: 30px; background-color: #BCE55C; color: black; cursor: pointer; border-radius: 30px; border: none; padding: 5px 10px;}
+.text {margin: 0px 20px; font-size: 30px;}
+.input-group span {width: 150px; justify-content: center;}
+/*.active {color: white;}*/
+a {text-decoration: none !important;}
+
+/* shop HomePage */
+.home {font-size: 1.5rem; color: white !important; margin-right: 20px; margin-left: 20px;}
+.navbar-nav .active, .navbar-nav a {color: white !important; padding: 10px;}
+
+/* BookSearch */
+.booksearch_contents {width: 80%; margin:0 auto;}
+.booksearch_save{display: flex; justify-content: space-between;}
+.booksearch_page{margin-top: 50px;}
+.booksearch_form{margin-bottom: 3%;}
+.booksearch_input{width: 25%; margin: 0 auto;}
+
+/* BookList */
+.booklist_contents {width: 80%; margin: 0 auto;}
+.booklist_search{display: flex; justify-content: space-between; margin-bottom: 20px;}
+.booklist_pagination{margin-top: 50px;}
+.booklist_count{margin-left: 65%;}
+.booklist_count p{margin-top: 2%;}
+
+/* LoginPage */
+.loginpage_contents {width: 30%; margin: 0 auto;}
+
+/* MyPage */
+.mypage_contents {width: 80%; margin: 0 auto; display: flex; justify-content: center;}
+.mypage_profile {display: flex; justify-content: center; width: 100%;}
+.mypage_info {margin-left: 5%;}
+
+/* UpdatePage */
+.updatepage_contents{width: 40%; margin: 0 auto;}
+
+/* HomePage */
+.hompage_container{width: 80%; margin: 0 auto;}
+.heart{color: #FF3333;}
+
+/* BookInfo */
+.bookinfo_content{width: 80%; margin: 0 auto;}
+.bookinfo_tab{width: 80%; margin: 0 auto;}
+
+/* ReviewPage */
+.reviewpage_content{width: 80%; margin: 0 auto;}
+
+/* CartPage */
+.cartpage_content{width: 80%; margin: 0 auto;}
+.cartpage_deletei_icon{cursor: pointer; color: #333333 !important;}
+.cartpage_tbody td{height: 60px;}
+.cartpage_count{font-weight: 700; font-size: 0.9rem;}
+
+/* OrderPage */
+.orderpage_content{width: 80%; margin: 0 auto;}
+
+/* OrderList */
+.orderlist_content{width: 80%; margin: 0 auto;}
+
+/* OrderAdmin */
+.orderadminpage_content{width: 80%; margin: 0 auto;}
