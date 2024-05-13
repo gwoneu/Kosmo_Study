@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>실습문제</title>
+</head>
+<body>
+<script>
+    var str = prompt("문자열을 입력하세요.");
+
+    var ret = true;
+
+    for(var i = 0; i < str.length; i++){
+        if(str[i] != str[str.length -i -1]) {
+            ret = false;
+        }
+    }
+
+    if(ret) {
+        alert("팰린드롬이 맞습니다.");
+    }
+    else {
+        alert("팰린드롬이 아닙니다.")
+    }
+</script>
+</body>
+</html>

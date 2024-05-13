@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>실습문제</title>
+</head>
+<body>
+<script>
+    var str = prompt("문자열을 입력하세요.");
+
+    var result = "";
+    var count = 1;
+    var currentChar = str[0];
+
+    for(var i = 1; i < str.length; i++) {
+        if(str[i] == currentChar) {
+            count++;
+        }
+        else {
+            result += currentChar + String(count);
+            currentChar = str[i];
+            count = 1;
+        }
+    }
+    document.write("<p>" + result + "<p>")
+
+        var count = 1;
+        var currentChar = str[0];
+    
+    for(var i = 1; i < str.length; i++) {
+        if(str[i] == currentChar) {
+            count++;
+        }
+        else {
+            document.write("<p>" + (currentChar + String(count)) + "<p>")
+            currentChar = str[i];
+            count = 1;
+        }
+    }
+    document.write("<p>" + result + "<p>")
+</script>
+</body>
+</html>

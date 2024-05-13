@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head><title>onload로 이미지 크기 출력</title>
+	<style>
+		.p{ /* 버튼 스타일 */
+			display: inline-block;
+			border: 1px solid;
+			border-radius: 5px;
+			padding: 5px;
+		}
+	</style>
+<script>
+	function changeImage() {
+		var apple = document.getElementById("apple");
+		var banana = document.getElementById("banana");
+		var mango = document.getElementById("mango");
+		var img = document.getElementById("myImg");
+
+		apple.addEventListener("mouseover", function() {
+			img.src = "https://media.istockphoto.com/id/185262648/photo/red-apple-with-leaf-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=gUTvQuVPUxUYX1CEj-N3lW5eRFLlkGrU_cwwwOWxOh8=";
+			apple.style.backgroundColor = "#FAFFA6";
+			banana.style.backgroundColor = "";
+			mango.style.backgroundColor = "";
+		});
+
+		banana.addEventListener("mouseover", function() {
+			img.src = "https://health.chosun.com/site/data/img_dir/2022/05/04/2022050401754_0.jpg";
+			banana.style.backgroundColor = "#FAFFA6";
+			apple.style.backgroundColor = "";
+			mango.style.backgroundColor = "";
+		});
+
+		mango.addEventListener("mouseover", function() {
+			img.src = "https://t1.daumcdn.net/cfile/tistory/9980A0335A22D4680B";
+			mango.style.backgroundColor = "#FAFFA6";
+			apple.style.backgroundColor = "";
+			banana.style.backgroundColor = "";
+		});
+
+		img.onload = function() {
+			var mySpan = document.getElementById("mySpan");
+			mySpan.innerHTML = "이미지 크기 : " + img.width + "x" + img.height;
+		}
+	}
+</script>
+</head>
+<body onload="changeImage()">
+	<h3>onload로 이미지 크기 출력</h3>
+	<hr>
+	<p class="p" id="apple">apple</p>
+	<p class="p" id="banana">banana</p>
+	<p class="p" id="mango">mango</p>
+
+	<img id="myImg" src="">
+	<p>이미지 크기 : <span id="mySpan"></span></p>
+</body>
+</html>
