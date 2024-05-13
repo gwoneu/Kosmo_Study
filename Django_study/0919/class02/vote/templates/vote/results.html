@@ -1,0 +1,10 @@
+<h1>{{question.question_text}}</h1>
+
+<ul>
+    {% for choice in question.choice_set.all %} {# 연결되어 있어서 사용 가능 question 안에 choice #}
+        <li>{{choice.choice_text}} ----> {{choice.votes}} vote {{choice.votes|pluralize}}</li>
+        {# {% pluralize %} 해당 태그는 앞에 있는 choice.votes가 1보다 크면 s를 출력해준다. #}
+    {% endfor %}
+</ul>
+
+<a href="{% url 'vote:detail' question.id %}">다시 투표하시겠습니까?</a>

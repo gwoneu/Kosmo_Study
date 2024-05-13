@@ -1,0 +1,6 @@
+{% for post in posts %}
+    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{post.title}}</a></h2>
+    <hr>
+{% empty %}
+    <p>게시물이 없습니다.</p>
+{% endfor %}
