@@ -1,0 +1,43 @@
+package J0802;
+
+import java.util.Scanner;
+
+public class Class02 {
+
+	public static void main(String[] args) {
+		
+		//입력 Scanner
+		// 조건문을 통해서 "?입니다" 1. -> 가위, 2 -> 바위, 3 -> 보
+		
+		Scanner sc = new Scanner(System.in);
+		int a = sc.nextInt();
+		
+		if(a == 1) {
+			System.out.println("가위입니다.");
+		}
+		else if (a == 2) {
+			System.out.println("바위입니다.");
+		}
+		else if(a==3) {
+			System.out.println("보입니다.");
+		} else {
+			System.out.println("잘못 입력했습니다.");
+		}
+		
+		switch(a) {
+		case 1:
+			System.out.println("가위입니다.");
+			break;
+		case 2:
+			System.out.println("바위입니다.");
+			break;
+		case 3:
+			System.out.println("보입니다.");
+			break;
+		default:
+			System.out.println("잘못 입력했습니다.");
+		}
+		
+	}
+
+}

@@ -1,0 +1,15 @@
+public class Person {
+	String name = "Gwon";
+	int age = 28; //인스턴스 변수 : 클래스 내부에서 사용하는 변수, 객체가 가질 수 있는 변수
+	int [] arr = new int[5];
+	
+	
+	Person(String name, int age) {
+		this.name = name;
+		this.age = age;
+	} // 생성자
+	
+	void sayHello() {
+		System.out.println("Hello, my name is " + name + " and I'm " + age + " years old.");
+	} // 메소드
+}

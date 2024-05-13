@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Class08_1 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int a = sc.nextInt(); 
+		
+//		if(a == 1) {			
+//			for(int j = 3; j < 10; j+=2) {
+//					for(int i = 1; i < 10; i++) {
+//					System.out.println(j + " X " + i + " = " + i*j);
+//					}
+//				}			
+//		}
+//		
+//		else if(a == 2) {
+//			for(int j = 2; j < 10; j+=2) {				
+//				for(int i = 1; i < 10; i++) {
+//				System.out.println(j + " X " + i + " = " + i*j);
+//				}
+//			}			
+//		}
+
+		for(int j = 2; j < 10; j++) {
+			if((a == 1 && j % 2 == 1) || (a == 2 && j % 2 == 0)) {
+				System.out.println("--- " + j + "단 ---");
+				for(int i = 1; i < 10; i++) {
+					System.out.println(j + " X " + i + " = " + i*j);
+					}
+			}
+		}
+		
+		
+		
+		
+		
+	}
+
+}
+
+
+
+//구구단 -> Scanner 1을 입력하면 홀수단, 2를 입력하면 짝수단

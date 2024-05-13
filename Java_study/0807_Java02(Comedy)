@@ -1,0 +1,15 @@
+package J0807;
+
+public class Comedy extends Movie{
+
+	
+	// 행동 : 장르 소개
+	Comedy(String title, int duration){
+		super(title,duration);
+	}
+	
+	@Override
+	void displayGenre() {
+		System.out.println("장르 : 코미디");
+	}
+}

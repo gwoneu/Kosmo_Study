@@ -1,0 +1,14 @@
+package J0807;
+
+public class Horror extends Movie {
+	// 행동 : 장르 소개
+	Horror(String title, int duration){
+		super(title,duration);
+	}
+	
+	@Override
+	void displayGenre() {
+		System.out.println("장르 : SF");
+	}
+	
+}

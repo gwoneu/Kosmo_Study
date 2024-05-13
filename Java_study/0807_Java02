@@ -1,0 +1,19 @@
+package J0807;
+
+public class Class02 {
+	public static void main(String[] args) {
+
+	Movie movie = new Movie("기생충",132);
+	Horror horror = new Horror("더넌",169);
+	Comedy comedy = new Comedy("써니",124);
+	
+	
+	movie.displayGenre();
+	horror.playMovie();
+	horror.displayGenre();
+	comedy.playMovie();
+	comedy.displayGenre();
+	
+	}
+	
+}

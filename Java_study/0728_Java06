@@ -1,0 +1,58 @@
+import java.util.Scanner;
+
+public class Class07 {
+
+	public static void main(String[] args) {
+//		for(int i = 0; i < 10; i++) {
+//			System.out.println(i);
+//			if(i == 5) { //5까지만 출력하고 멈춤
+//				break;
+//			}
+//		}
+//
+//		
+//		for(int i = 0; i < 10; i++) {
+//			for(int j = 0; j < 10; j++) {
+//				System.out.println("i : " + i +  ", j : " + j);
+//				if(j == 5) {
+//					break;
+//				}
+//			}
+//		}
+//		
+//		
+//		for(int i = 0; i <= 100; i++) {
+//			if(i % 2 ==1) {
+//				continue;
+//			}
+//			System.out.println(i);
+//		}
+		
+		
+		for(int j = 10; j >= 0; j--) {
+			if(j == 0) {
+				System.out.println("발사!!");
+				break;
+			}
+			System.out.println(j);
+		}
+		
+
+		
+		
+		
+		
+		
+	}
+
+}
+
+
+
+// break, continue
+// switch -> break를 쓰면 switch문을 빠져나왔다.
+// break -> for문, while문, switch문을 빠져나올 수 있다.
+// 특정 상황에서 탈출
+
+// continue
+// for문, while문을 건너뛸 수 있게 -> 내 아래 코드 더 이상 실행하지말고 계속해줘

@@ -1,0 +1,47 @@
+public class Class12 {
+
+	public static void main(String[] args) {
+		int[][] student = new int[6][4]; // 1-6학년, 1-4반
+		
+		// System.out.println(student[0][3]); //1학년 4반
+		for(int i=0; i<6; i++) {
+			for(int j=0; j<4; j++) {
+				student[i][j] = 20;
+			}
+		}
+		
+		for(int i=0; i<6; i++) {
+			for(int j=0; j<4; j++) {
+				System.out.print(student[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+		
+		// 10X10 배열 1~100 다 넣어주고 사각형으로 출력.
+		
+		int[][] num = new int[10][10];
+		
+		for(int i=0; i<10; i++) {
+			for(int j=0; j<10; j++) {
+				num[i][j] = i*10 + j+1;
+			}
+		}	
+		
+		for(int i=0; i<10; i++) {
+			for(int j=0; j<10; j++) {
+				System.out.print(num[i][j] + " ");
+			}
+			System.out.println();
+		}
+		
+	}
+
+}
+
+
+// 1차원 배열
+
+
+// 다차원 배열
+//자료형(int)[][] 배열명 = new 자료형[크기][크기]; ex) 세로, 가로

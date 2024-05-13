@@ -1,0 +1,35 @@
+package J0801;
+
+public class Restaurant {
+	String state;
+	String name;
+	int point = 0;
+	int count = 0;
+	
+	Restaurant() {
+		state = "";
+		name = "";
+	}
+	
+	Restaurant(String state, String name, int point) {
+		this.state = state;
+		this.name = name;
+		this.point += point;
+		count++;
+		System.out.println(this.point + " " + count);
+	}
+	
+	void printRes() {
+		if(count == 0) {
+			System.out.println("국가 : " + state + ", 이름 : " + name + ", 평점 : 0");
+		}
+		else {
+			System.out.println("국가 : " + state + ", 이름 : " + name + ", 평점 : " + point/count);
+		}
+	}
+	
+	void setPoint(int point) {
+		this.point += point;
+		count++;
+	}
+}

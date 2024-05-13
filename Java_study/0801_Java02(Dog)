@@ -1,0 +1,19 @@
+package J0801;
+
+public class Dog extends Animal{
+	String name;
+	int age;
+	
+	Dog(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+	
+	void eat() {
+		super.eat();
+	}
+	
+	void sleep() {
+		super.sleep();
+	}
+}

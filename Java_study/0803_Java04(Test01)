@@ -1,0 +1,58 @@
+package J0803;
+
+public class Class04 {
+
+	public static void main(String[] args) {
+//		Person kim = new Person("KIM", 23);
+//		Person choi = new Person("CHOI", 12);
+//		Person park = new Person("PARK", 34);
+		
+//		//System.out.println("이름 : " + kim.name + ",나이 : " + kim.age);
+//		kim.speak();
+//		kim.run();
+//		kim.eat();
+//		//System.out.println("이름 : " + choi.name + ",나이 : " + choi.age);
+//		choi.speak();
+//		choi.run();
+//		choi.eat();
+//		//System.out.println("이름 : " + park.name + ",나이 : " + park.age);
+//		park.speak();
+//		park.run();
+//		park.eat();
+		
+		Coffee kim = new Coffee("KIM","아메리카노","Grande");
+		Coffee choi = new Coffee("CHOI","쿨라임피지오","Tall");
+		Coffee park = new Coffee("PARK","자몽허니블랙티","Venti");
+		
+		kim.speak();
+		kim.menu();
+		choi.speak();
+		choi.menu();
+		park.speak();
+		park.menu();
+		
+		
+		
+		
+	}
+
+}
+
+// 지역변수 -> 특정 지역에서만 사용 가능
+// 전역변수 -> 전 지역에서 사용 가능
+
+// 전역변수로 작성하게 된다면? 
+// 장점 : 모든 곳에서 접근이 가능하다.
+// 단점 : 모든 곳에서 접근이 가능하다. (보안성)
+
+// 지역변수 할 때, 함수 안 밖 구분이 어려워요.
+// 변수가 선언된 위치 <- 어디의 지역변수인지 알 수 있다.
+// 지역의 구분은 항상 {} 사이
+// 변수 선언 -> 1. {} 사이에서 선언, 2.() 사이에서 선언 -> () 옆에 보면 {} 사이의 지역 변수
+
+// 클래스 -> 파일
+// 클래스 -> 설계도
+// 객체 -> 설계도를 사용하여 만든 것.
+// 생성자
+// 생성할 떄, 객체한테 값을 전달해주는 것. (객체한테 만들어질때, 첨부파일 전달)
+//
